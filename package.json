@@ -1,0 +1,42 @@
+{
+  "name": "code-colors-react",
+  "version": "1.0.0",
+  "description": "Code syntax highlighting React component",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "test",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/streamich/code-colors-react.git"
+  },
+  "keywords": [
+    "react",
+    "color",
+    "syntax",
+    "highlighting",
+    "prism",
+    "refractor",
+    "code"
+  ],
+  "author": "@streamich",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/streamich/code-colors-react/issues"
+  },
+  "homepage": "https://github.com/streamich/code-colors-react#readme",
+  "peerDependencies": {
+    "react": "*",
+    "react-dom": "*"
+  },
+  "dependencies": {
+    "code-colors": "^1.0.0",
+    "thingies": "^1.11.1"
+  },
+  "devDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
