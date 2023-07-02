@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ColorTokens, ColorTokensProps } from '../ColorTokens';
+import { ColorTokens, ColorTokensProps } from '..';
 
 export default {
   component: (props: ColorTokensProps) => {

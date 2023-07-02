@@ -25,20 +25,14 @@ export const ColorTokens: React.FC<ColorTokensProps> = ({ code, lang, prefix }) 
     };
   }, [code]);
 
-  if (ast) {
-    return (
-      <ColorToken
-        code={code}
-        pos={0}
-        token={ast}
-        prefix={prefix}
-      />
-    );
-  }
+  if (!ast) return <>{code}</>
 
   return (
-    <>
-      {code}
-    </>
+    <ColorToken
+      code={code}
+      pos={0}
+      token={ast}
+      prefix={prefix}
+    />
   );
 };

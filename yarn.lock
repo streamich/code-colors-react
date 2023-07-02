@@ -1257,7 +1257,7 @@
     "@babel/plugin-transform-react-jsx-development" "^7.22.5"
     "@babel/plugin-transform-react-pure-annotations" "^7.22.5"
 
-"@babel/preset-typescript@^7.13.0":
+"@babel/preset-typescript@^7.13.0", "@babel/preset-typescript@^7.22.5":
   version "7.22.5"
   resolved "https://registry.yarnpkg.com/@babel/preset-typescript/-/preset-typescript-7.22.5.tgz#16367d8b01d640e9a507577ed4ee54e0101e51c8"
   integrity sha512-YbPaal9LxztSGhmndR46FmAbkJ/1fAsw293tSU+I5E5h+cnJ3d4GTwyUgGYmOXJYdGA+uNePle4qbaRzj2NISQ==
@@ -3588,10 +3588,10 @@ clone@^1.0.2:
   resolved "https://registry.yarnpkg.com/clone/-/clone-1.0.4.tgz#da309cc263df15994c688ca902179ca3c7cd7c7e"
   integrity sha512-JQHZ2QMW6l3aH/j6xCqQThY/9OH4D/9ls34cgkUBiEeocRTU04tHfKPBsUK1PqZCUQM7GiA0IIXJSuXHI64Kbg==
 
-code-colors@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/code-colors/-/code-colors-1.0.0.tgz#1b7918f651b6e384fbdbfdf9936a44ce5beadce7"
-  integrity sha512-9gmfSEetuZa86KhvZIr2mP7DmC2GHro7pYfd+JvvFxjaIqw1FEi2yHa21YOKCpsceY02bnuK12Em7pUiE4C/hA==
+code-colors@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/code-colors/-/code-colors-1.1.0.tgz#0d12f3e2c2df83228d0537fb6425e375f78d79d4"
+  integrity sha512-r7TDSBtd99Q/dSDNeGZOTeOuYKXHIuqxBF5vflT5JHWNOoFH6cFHEnLwm5b7YZuMUKkf+TdJW+uX/6yQKoFkOw==
   dependencies:
     highlight.js "^11.8.0"
     json-joy "^9.3.0"
