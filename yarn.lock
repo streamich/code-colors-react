@@ -3588,10 +3588,10 @@ clone@^1.0.2:
   resolved "https://registry.yarnpkg.com/clone/-/clone-1.0.4.tgz#da309cc263df15994c688ca902179ca3c7cd7c7e"
   integrity sha512-JQHZ2QMW6l3aH/j6xCqQThY/9OH4D/9ls34cgkUBiEeocRTU04tHfKPBsUK1PqZCUQM7GiA0IIXJSuXHI64Kbg==
 
-code-colors@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/code-colors/-/code-colors-1.1.0.tgz#0d12f3e2c2df83228d0537fb6425e375f78d79d4"
-  integrity sha512-r7TDSBtd99Q/dSDNeGZOTeOuYKXHIuqxBF5vflT5JHWNOoFH6cFHEnLwm5b7YZuMUKkf+TdJW+uX/6yQKoFkOw==
+code-colors@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/code-colors/-/code-colors-1.3.0.tgz#0fa62d8816a64efa7e52acf1927ff9818b9fa5dc"
+  integrity sha512-zHZtYS8f6ZTcOD6pckVL9DGw6dj2DY80MVUbpkAmorRsM/P9rrM342D/ds8c/hT6rpWbtpDMPefSVIK9j/xsNA==
   dependencies:
     highlight.js "^11.8.0"
     json-joy "^9.3.0"
@@ -7130,6 +7130,11 @@ thingies@^1.11.1:
   version "1.11.1"
   resolved "https://registry.yarnpkg.com/thingies/-/thingies-1.11.1.tgz#47a648e2b42c3bb011e493e0c99df20a2758c25d"
   integrity sha512-SXWTuQA6TFjpfV4xiwPs4FkHashZShR/Hugosrm9sRMm63fAdgZaWKixt5YvuP6VwDaAROcDwf9cFeuw1DeekA==
+
+thingies@^1.12.0:
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/thingies/-/thingies-1.12.0.tgz#a815c224482d607aa70f563d3cbb351a338e4710"
+  integrity sha512-AiGqfYC1jLmJagbzQGuoZRM48JPsr9yB734a7K6wzr34NMhjUPrWSQrkF7ZBybf3yCerCL2Gcr02kMv4NmaZfA==
 
 through2@^2.0.3:
   version "2.0.5"
