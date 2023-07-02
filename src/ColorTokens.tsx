@@ -4,7 +4,7 @@ import type {Token} from './types';
 
 const {createElement: h} = React;
 
-const astToReact = (ast: Token, code: string, pos: number, prefix: string, as: string): [node: React.ReactNode, length: number] => {
+const astToReact = (ast: Token, code: string, pos: number, prefix: string, as: string, rest: {[key: string]: unknown} = {}): [node: React.ReactNode, length: number] => {
   if (typeof ast === 'number') return [code.slice(pos, pos + ast), ast];
   const [types, tokens, language] = ast;
   const children: React.ReactNode[] = [];
@@ -20,7 +20,7 @@ const astToReact = (ast: Token, code: string, pos: number, prefix: string, as: s
     className: prefix + types.shift() + ' ' + types.join(' '),
     'data-lang': language,
   };
-  return [h(as, props, ...children), nodeTextLength];
+  return [h(as, {...props, ...rest}, ...children), nodeTextLength];
 };
 
 export interface ColorTokensProps {
@@ -28,9 +28,10 @@ export interface ColorTokensProps {
   as?: string;
   lang?: string;
   prefix?: string;
+  [key: string]: unknown;
 }
 
-export const ColorTokens: React.FC<ColorTokensProps> = ({ code, lang, prefix = 'hljs-', as = 'code'}) => {
+export const ColorTokens: React.FC<ColorTokensProps> = ({ code, lang, prefix = 'hljs-', as = 'code', ...rest}) => {
   const [node, setNode] = React.useState<React.ReactNode | null>(null);
 
   const Tag = as as any;
@@ -51,5 +52,5 @@ export const ColorTokens: React.FC<ColorTokensProps> = ({ code, lang, prefix = '
     };
   }, [code]);
 
-  return node || <Tag>{code}</Tag>;
+  return node || <Tag {...rest}>{code}</Tag>;
 };
