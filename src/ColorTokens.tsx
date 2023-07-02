@@ -25,7 +25,7 @@ const astToReact = (ast: Token, code: string, pos: number, prefix: string, as: s
 
 export interface ColorTokensProps {
   code: string;
-  as: string;
+  as?: string;
   lang?: string;
   prefix?: string;
 }
