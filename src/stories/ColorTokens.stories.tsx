@@ -8,10 +8,8 @@ loadCss('https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8.0/build/styles
 export default {
   component: (props: ColorTokensProps) => {
     return (
-      <pre className={'hljs'}>
-        <code>
-          <ColorTokens {...props} />
-        </code>
+      <pre>
+        <ColorTokens {...props} className={'hljs'} />
       </pre>
     );
   },

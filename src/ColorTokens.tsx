@@ -17,10 +17,10 @@ const astToReact = (ast: Token, code: string, pos: number, prefix: string, as: s
     children.push(node);
   }
   const props = {
-    className: prefix + types.shift() + ' ' + types.join(' '),
+    className: prefix + types.shift() + (types.length ? ' ' + types.join(' ') : ''),
     'data-lang': language,
   };
-  return [h(as, {...props, ...rest}, ...children), nodeTextLength];
+  return [h(as, {...props, ...rest, className: props.className + (rest.className ? ' ' + rest.className : '')}, ...children), nodeTextLength];
 };
 
 export interface ColorTokensProps {
@@ -42,7 +42,7 @@ export const ColorTokens: React.FC<ColorTokensProps> = ({ code, lang, prefix = '
     tokens(code, lang)
       .then((ast) => {
         if (!unmounted) {
-          const [node] = astToReact(ast, code, 0, prefix, Tag);
+          const [node] = astToReact(ast, code, 0, prefix, Tag, rest);
           setNode(node);
         }
       })
