@@ -39,7 +39,7 @@ import {ColorTokens} from 'code-colors-react';
 
 ## Styling
 
-To style the highlighted code, you can use any of the pre-defined themes from
+To style the highlighted code, you can use any of the [pre-defined themes](https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8.0/build/styles/) from
 `highlight.js`.
 
 You can do it in JavaScript like so:
@@ -48,5 +48,7 @@ You can do it in JavaScript like so:
 import {loadCss} from 'thingies/lib/loadCss';
 
 const theme = 'github';
-loadCss(`https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8.0/build/styles/${theme}.min.css`, 'hljs');
+const href = `https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8.0/build/styles/${theme}.min.css`;
+
+loadCss(href, 'hljs');
 ```
