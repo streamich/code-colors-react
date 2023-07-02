@@ -16,5 +16,6 @@ export default {
 export const Primary = {
   args: {
     code: 'const a = 1;',
+    lang: 'js',
   },
 };
