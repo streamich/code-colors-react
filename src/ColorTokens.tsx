@@ -19,9 +19,8 @@ const astToReact = (ast: Token, code: string, pos: number, prefix: string): [nod
   const props = {
     className: prefix + type,
     'data-lang': language,
-    children,
   };
-  return [h('span', props), nodeTextLength];
+  return [h('span', props, ...children), nodeTextLength];
 };
 
 export interface ColorTokensProps {
