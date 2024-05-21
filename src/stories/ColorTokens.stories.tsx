@@ -91,3 +91,26 @@ export const HtmlCss = {
     code: code3,
   },
 };
+
+
+const code4 = `
+import {Avatar} from 'p4-ui/lib/inline/Avatar';
+
+<Avatar width={64} src={'abc'} />
+
+const Component = () => {
+  return (
+    <div style={{border: '1px solid red'}}>
+      <h1 alt>Hello World</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+  );
+};
+`;
+
+export const Jsx = {
+  args: {
+    code: code4,
+    lang: 'jsx',
+  },
+};
