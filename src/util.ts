@@ -1,7 +1,6 @@
 import { CodeColors } from "code-colors/lib/CodeColors";
 import type { TokenNode } from "./types";
 
-// const bundle = 'https://unpkg.com/code-colors@1.3.0/dist/bundle.js';
 const bundle = "https://unpkg.com/code-colors@2.0.0/dist/bundle.js";
 
 let __colors: CodeColors | null = null;
