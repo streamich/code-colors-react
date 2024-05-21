@@ -1,15 +1,11 @@
 import * as React from 'react';
 import { ColorTokens, ColorTokensProps } from '..';
-import {loadCss} from 'thingies/lib/loadCss';
-
-loadCss('https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8.0/build/styles/github.min.css', 'hljs');
-
 
 export default {
   component: (props: ColorTokensProps) => {
     return (
       <pre>
-        <ColorTokens {...props} className={'hljs'} />
+        <ColorTokens {...props} />
       </pre>
     );
   },

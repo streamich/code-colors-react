@@ -17,7 +17,7 @@ const astToReact = (ast: Token, code: string, pos: number, prefix: string, as: s
     children.push(node);
   }
   const props = {
-    className: prefix + types.shift() + (types.length ? ' ' + types.join(' ') : ''),
+    className: prefix + types.join(' ' + prefix),
     'data-lang': language,
   };
   return [h(as, {...props, ...rest, className: props.className + (rest.className ? ' ' + rest.className : '')}, ...children), nodeTextLength];
@@ -31,7 +31,7 @@ export interface ColorTokensProps {
   [key: string]: unknown;
 }
 
-export const ColorTokens: React.FC<ColorTokensProps> = ({ code, lang, prefix = 'hljs-', as = 'code', ...rest}) => {
+export const ColorTokens: React.FC<ColorTokensProps> = ({ code, lang, prefix = 'code-colors-', as = 'code', ...rest}) => {
   const [node, setNode] = React.useState<React.ReactNode | null>(null);
 
   const Tag = as as any;
