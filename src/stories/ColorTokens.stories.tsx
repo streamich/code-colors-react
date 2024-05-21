@@ -1,5 +1,9 @@
 import * as React from 'react';
 import { ColorTokens, ColorTokensProps } from '..';
+import {loadCss} from 'thingies/lib/loadCss';
+
+loadCss('https://cdn.jsdelivr.net/npm/prism-themes@1.9.0/themes/prism-one-light.min.css', 'theme');
+
 
 export default {
   component: (props: ColorTokensProps) => {

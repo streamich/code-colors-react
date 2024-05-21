@@ -52,12 +52,12 @@
     "@storybook/react": "^7.0.24",
     "@storybook/react-webpack5": "^7.0.24",
     "@storybook/testing-library": "^0.0.14-next.2",
-    "nano-theme": "^1.4.1",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rimraf": "^5.0.1",
     "storybook": "^7.0.24",
+    "thingies": "^2.1.0",
     "typescript": "^5.1.6"
   }
 }
