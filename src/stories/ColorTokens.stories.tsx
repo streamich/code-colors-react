@@ -1,9 +1,11 @@
-import * as React from 'react';
-import { ColorTokens, ColorTokensProps } from '..';
-import {loadCss} from 'thingies/lib/loadCss';
+import * as React from "react";
+import { ColorTokens, ColorTokensProps } from "..";
+import { loadCss } from "thingies/lib/loadCss";
 
-loadCss('https://cdn.jsdelivr.net/npm/prism-themes@1.9.0/themes/prism-one-light.min.css', 'theme');
-
+loadCss(
+  "https://cdn.jsdelivr.net/npm/prism-themes@1.9.0/themes/prism-one-light.min.css",
+  "theme",
+);
 
 export default {
   component: (props: ColorTokensProps) => {
@@ -18,10 +20,9 @@ export default {
 export const HelloWorld = {
   args: {
     code: "console.log('hello world');",
-    lang: 'js',
+    lang: "js",
   },
 };
-
 
 const code1 = `
 # memfs
@@ -39,10 +40,9 @@ JavaScript file system utilities for Node.js and browser.
 export const Markdown = {
   args: {
     code: code1,
-    lang: 'md',
+    lang: "md",
   },
 };
-
 
 const code2 = `
 const iterations = 1000e6;
@@ -61,11 +61,10 @@ console.log('Result:', sum, 'Ops/sec:', (iterations / ((t2 - t1) / 1000) / 1e6).
 export const Benchmark = {
   args: {
     code: code2,
-    lang: 'js',
-    prefix: 'hljs-',
+    lang: "js",
+    prefix: "hljs-",
   },
 };
-
 
 const code3 = `
 <!DOCTYPE html>
@@ -92,7 +91,6 @@ export const HtmlCss = {
   },
 };
 
-
 const code4 = `
 import {Avatar} from 'p4-ui/lib/inline/Avatar';
 
@@ -111,6 +109,6 @@ const Component = () => {
 export const Jsx = {
   args: {
     code: code4,
-    lang: 'jsx',
+    lang: "jsx",
   },
 };

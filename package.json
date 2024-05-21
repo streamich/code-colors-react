@@ -4,6 +4,8 @@
   "description": "Code syntax highlighting React component",
   "main": "lib/index.js",
   "scripts": {
+    "prettier": "npx prettier@3.2.5 --write .",
+    "prettier:check": "npx prettier@3.2.5 --check .",
     "test": "test",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",

@@ -2,7 +2,7 @@
 
 React component for code syntax highlighting.
 
-__Why another code syntax highlighting package?__
+**Why another code syntax highlighting package?**
 
 - This package is simple to use. It is very lightweight, it essentially just ships a single React component.
 - The `highlight.js` dependency is loaded from CDN asynchronously.
@@ -11,22 +11,20 @@ __Why another code syntax highlighting package?__
   highlighted in the Web Worker, the component renders plain text with the
   correct dimensions.
 
-
 ## Installation
 
 ```sh
 npm i code-colors-react
 ```
 
-
 ## Usage
 
 ```js
-import {ColorTokens} from 'code-colors-react';
+import { ColorTokens } from "code-colors-react";
 
 <pre>
-  <ColorTokens code={"console.log('hello world');"} lang={'js'} />
-</pre>
+  <ColorTokens code={"console.log('hello world');"} lang={"js"} />
+</pre>;
 ```
 
 #### Props
@@ -36,7 +34,6 @@ import {ColorTokens} from 'code-colors-react';
 - `prefix` &mdash; The prefix to use for the CSS classes. Defaults to `hljs-`.
 - `as` &mdash; The root element to render. Defaults to `"code"`.
 
-
 ## Styling
 
 To style the highlighted code, you can use any of the [pre-defined themes](https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8.0/build/styles/) from
@@ -45,10 +42,10 @@ To style the highlighted code, you can use any of the [pre-defined themes](https
 You can do it in JavaScript like so:
 
 ```js
-import {loadCss} from 'thingies/lib/loadCss';
+import { loadCss } from "thingies/lib/loadCss";
 
-const theme = 'github';
+const theme = "github";
 const href = `https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8.0/build/styles/${theme}.min.css`;
 
-loadCss(href, 'hljs');
+loadCss(href, "hljs");
 ```
