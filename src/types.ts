@@ -1,1 +1,1 @@
-export type * from 'code-colors/lib';
+export type * from "code-colors/lib";
