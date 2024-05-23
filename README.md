@@ -31,13 +31,12 @@ import { ColorTokens } from "code-colors-react";
 
 - `code` &mdash; The code to highlight.
 - `lang` &mdash; The language of the code. If omitted, it will try to autodetect the language.
-- `prefix` &mdash; The prefix to use for the CSS classes. Defaults to `hljs-`.
 - `as` &mdash; The root element to render. Defaults to `"code"`.
 
 ## Styling
 
-To style the highlighted code, you can use any of the [pre-defined themes](https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8.0/build/styles/) from
-`highlight.js`.
+To style the highlighted code, you can use any of the [pre-defined themes](https://cdn.jsdelivr.net/npm/prism-themes@1.9.0/themes/) from
+Prism.
 
 You can do it in JavaScript like so:
 
@@ -45,7 +44,7 @@ You can do it in JavaScript like so:
 import { loadCss } from "thingies/lib/loadCss";
 
 const theme = "github";
-const href = `https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8.0/build/styles/${theme}.min.css`;
+const href = `https://cdn.jsdelivr.net/npm/prism-themes@1.9.0/themes/${theme}.min.css`;
 
 loadCss(href, "hljs");
 ```
