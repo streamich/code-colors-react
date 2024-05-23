@@ -52,7 +52,6 @@ export interface ColorTokensProps {
 export const ColorTokens: React.FC<ColorTokensProps> = ({
   code,
   lang,
-  prefix = "code-colors",
   as = "code",
   ...rest
 }) => {
