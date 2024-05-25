@@ -1,11 +1,17 @@
 import * as React from "react";
 import { ColorTokens, ColorTokensProps } from "..";
 import { loadCss } from "thingies/lib/loadCss";
+import {rule} from 'nano-theme';
+import {css} from '../style';
 
-loadCss(
-  "https://cdn.jsdelivr.net/npm/prism-themes@1.9.0/themes/prism-one-light.min.css",
-  "code-colors",
-);
+const className = rule(css());
+
+// loadCss(
+//   "https://cdn.jsdelivr.net/npm/prism-themes@1.9.0/themes/prism-one-light.min.css",
+//   "code-colors",
+// );
+
+import '../style';
 
 export default {
   component: (props: ColorTokensProps) => {
@@ -21,6 +27,7 @@ export const HelloWorld = {
   args: {
     code: "console.log('hello world');",
     lang: "js",
+    className,
   },
 };
 
@@ -35,12 +42,28 @@ const code1 = `
 [npm-badge]: https://img.shields.io/npm/v/memfs.svg
 
 JavaScript file system utilities for Node.js and browser.
+This is *italic* and this is __bold__.
+
+~~~js
+consol.log('Hello World');
+~~~
+
+\`\`\`js
+consol.log('Hello World');
+\`\`\`
+
+> This is a blockquote.
+
+- Item 1
+- Item 2
+  - Item 2.1
 `;
 
 export const Markdown = {
   args: {
     code: code1,
     lang: "md",
+    className,
   },
 };
 
@@ -63,6 +86,110 @@ export const Benchmark = {
     code: code2,
     lang: "js",
     prefix: "hljs-",
+    className,
+  },
+};
+
+export const JavaScript = {
+  args: {
+    code: `
+'use strict';
+
+var KEBAB_REGEX = /[A-Z]/g;
+
+var hash = function (str) {
+    var h = 5381, i = str.length;
+    while (i) h = (h * 33) ^ str.charCodeAt(--i);
+    return '_' + (h >>> 0).toString(36);
+};
+
+exports.create = function (config) {
+    config = config || {};
+    var assign = config.assign || Object.assign;
+    var client = typeof window === \`object\`;
+
+    // Check if we are really in browser environment.
+    if (process.env.NODE_ENV !== 'production') {
+        if (client) {
+            if ((typeof document !== 'object') || !document.getElementsByTagName('HTML')) {
+                console.error(
+                    'nano-css detected browser environment because of "window" global, but ' +
+                    '"document" global seems to be defective.'
+                );
+            }
+        }
+    }
+
+    var renderer = assign({
+        raw: '',
+        pfx: '_',
+        client: client,
+        assign: assign,
+        stringify: JSON.stringify,
+        kebab: function (prop) {
+            return prop.replace(KEBAB_REGEX, '-$&').toLowerCase();
+        },
+        decl: function (key, value) {
+            key = renderer.kebab(key);
+            return key + ':' + value + ';';
+        },
+        hash: function (obj) {
+            return hash(renderer.stringify(obj));
+        },
+        selector: function (parent, selector) {
+            return parent + (selector[0] === ':' ? ''  : ' ') + selector;
+        },
+    }, config);
+};
+`,
+    lang: "js",
+    className,
+  },
+};
+
+export const JSON = {
+  args: {
+    code: `
+{
+  "name": "one-light-syntax",
+  "theme": "syntax",
+  "version": "1.8.4",
+  "description": "Atom One light syntax theme",
+  "keywords": [
+    "light",
+    "syntax"
+  ],
+  "repository": "https://github.com/atom/atom",
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.40.0"
+  }
+}
+`,
+    lang: "json",
+    className,
+  },
+};
+
+export const CSS = {
+  args: {
+    code: `
+.container {
+  display: grid;
+  grid-template-rows: 1fr 2fr;
+  gap: 1rem;
+  transition: background 0.3s;
+}
+@media (min-width: 768px) {
+  #container > .container {
+    grid-template-rows: 1fr 1fr;
+    cursor: pointer !important;
+    background: url('https://example.com/image.jpg');
+  }
+}    
+`,
+    lang: "css",
+    className,
   },
 };
 
@@ -71,9 +198,19 @@ const code3 = `
 <html>
 <head>
 <style>
-body {background-color: powderblue;}
-h1   {color: blue;}
-p    {color: red;}
+  .container {
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    gap: 1rem;
+    transition: background 0.3s;
+  }
+  @media (min-width: 768px) {
+    #container > .container {
+      grid-template-rows: 1fr 1fr;
+      cursor: pointer !important;
+      background: url('https://example.com/image.jpg');
+    }
+  }  
 </style>
 </head>
 <body>
@@ -88,6 +225,8 @@ p    {color: red;}
 export const HtmlCss = {
   args: {
     code: code3,
+    lang: 'html',
+    className,
   },
 };
 
@@ -101,6 +240,7 @@ const Component = () => {
     <div style={{border: '1px solid red'}}>
       <h1 alt>Hello World</h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      {!!open && (<Toast message="Hello World" />)}
     </div>
   );
 };
@@ -110,5 +250,6 @@ export const Jsx = {
   args: {
     code: code4,
     lang: "jsx",
+    className,
   },
 };
