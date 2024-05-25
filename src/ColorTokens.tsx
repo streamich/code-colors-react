@@ -9,8 +9,6 @@ const astToReact = (
   ast: Token,
   code: string,
   pos: number,
-  as: string,
-  rest: { [key: string]: unknown } = {},
 ): [node: React.ReactNode, length: number] => {
   if (typeof ast === "number") return [code.slice(pos, pos + ast), ast];
   const [types, tokens, language] = ast;
@@ -19,7 +17,7 @@ const astToReact = (
   let nodeTextLength = 0;
   for (let i = 0; i < length; i++) {
     const token = tokens[i];
-    const [node, len] = astToReact(token, code, pos + nodeTextLength, "span");
+    const [node, len] = astToReact(token, code, pos + nodeTextLength);
     nodeTextLength += len;
     children.push(node);
   }
@@ -28,16 +26,7 @@ const astToReact = (
     "data-lang": language,
   };
   return [
-    h(
-      as,
-      {
-        ...props,
-        ...rest,
-        className:
-          props.className + (rest.className ? " " + rest.className : ""),
-      },
-      ...children,
-    ),
+    h('span', props, ...children),
     nodeTextLength,
   ];
 };
@@ -66,7 +55,7 @@ export const ColorTokens: React.FC<ColorTokensProps> = ({
     tokens(code, lang)
       .then((ast) => {
         if (!cancelled) {
-          const [node] = astToReact(ast, code, 0, Tag, rest);
+          const [node] = astToReact(ast, code, 0);
           setNode(node);
         }
       })
@@ -76,5 +65,5 @@ export const ColorTokens: React.FC<ColorTokensProps> = ({
     };
   }, [code]);
 
-  return node || <Tag {...rest}>{code}</Tag>;
+  return <Tag {...rest}>{node}</Tag>;
 };
