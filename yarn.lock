@@ -3655,10 +3655,10 @@ clone@^1.0.2:
   resolved "https://registry.yarnpkg.com/clone/-/clone-1.0.4.tgz#da309cc263df15994c688ca902179ca3c7cd7c7e"
   integrity sha512-JQHZ2QMW6l3aH/j6xCqQThY/9OH4D/9ls34cgkUBiEeocRTU04tHfKPBsUK1PqZCUQM7GiA0IIXJSuXHI64Kbg==
 
-code-colors@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/code-colors/-/code-colors-2.0.1.tgz#9947b50d3403e28e221c1fa5fb41804ac739bc9c"
-  integrity sha512-YBZWa5qpDFtB/6gkw6O3CrQmm2W23UAQRO4K/PeU5zmuj9GBPWxt6byrA19loxzfIbFwAWVNQ140j/GjPyVbSQ==
+code-colors@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/code-colors/-/code-colors-2.1.0.tgz#6c397d1fbc147e925bf40f7bde48a45a52279fc4"
+  integrity sha512-RJlW3dbnbZdopcuIsOOeFveRGhso0IPrpOb4QgqA0PvwCCXrhQfeUxHCKWmprmOMqdg/+tXXpcRF+oDkVRpYjw==
   dependencies:
     "@jsonjoy.com/reactive-rpc" "^1.3.0"
     prismjs "^1.29.0"
