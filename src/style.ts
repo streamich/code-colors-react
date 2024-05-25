@@ -1,3 +1,5 @@
+import type {CssLikeObject} from 'nano-theme';
+
 // const col1 = '#a151d2';
 // // const col2 = '#39464E';
 // const col3 = '#ED5C65';
@@ -7,7 +9,7 @@
 // // const col7 = '#C99E00';
 // const col8 = '#718C00';
 // const col9 = '#ED5C65';
-// const col10 = '#2795EE';
+const col10 = '#2795EE';
 // const col11 = '#CD3C45';
 // const col12 = '#A0A1A7';
 // const col14 = '#444';
@@ -36,13 +38,16 @@ export interface ColorPalette {
   selection: string;
   // const colorSyntaxGutterBackgroundColorSelected = 'hsl(230, 1%, 90%)';
   // const colorSyntaxCursorLine = 'hsla(230, 8%, 24%, 0.05)';
+
+  str?: string;
 }
 
 export const palette: ColorPalette = {
   mono1: 'hsl(230, 8%, 24%)',
   mono2: 'hsl(230, 6%, 44%)',
   mono3: 'hsl(230, 4%, 64%)',
-  hue1: 'hsl(198, 99%, 37%)',
+  // hue1: 'hsl(198, 99%, 40%)',
+  hue1: col10,
   hue2: 'hsl(221, 87%, 60%)',
   hue3: 'hsl(301, 63%, 40%)',
   hue4: 'hsl(119, 34%, 47%)',
@@ -58,13 +63,80 @@ export const palette: ColorPalette = {
   selection: 'hsl(230, 1%, 90%)',
 };
 
-export const css = ({mono1, mono2, mono3, hue1, hue2, hue3, hue4, hue5, hue52, hue6, hue62, fg, bg, gutter, guide, accent, selection}: ColorPalette = palette) => ({
-  '.token.comment,.token.prolog,.token.cdata': {
-    color: mono3,
+export const css = ({
+  mono1,
+  mono2,
+  mono3,
+  hue1,
+  hue2,
+  hue3,
+  hue4,
+  hue5,
+  hue52,
+  hue6,
+  hue62,
+  fg,
+  bg,
+  gutter,
+  guide,
+  accent,
+  selection,
+
+  str = hue4,
+}: ColorPalette = palette): CssLikeObject => ({
+  // https://prismjs.com/tokens.html
+  '.token': {
+    '&.string': {
+      col: str,
+    },
+    '&.comment,&.prolog,&.cdata': {
+      color: mono3,
+    },
+    '&.doctype,&.punctuation,&.entity': {
+      color: mono1,
+    },
+    // keyword
+    // builtin
+    // class-name
+    // function
+    // boolean
+    // number
+    // string
+    // char
+    // symbol
+    // regex
+    // url
+    // operator
+    // variable
+    // constant
+    // property
+    // punctuation
+    // important
+    // tag
+    // attr-name
+    // attr-value
+    // doctype
+    // entity
+    // atrule
+    // selector
+    // inserted
+    // deleted
+    // function-defintion
+    // function
+    '&.bold': {
+      fw: 'bold',
+    },
+    '&.comment,&.italic': {
+      fs: 'italic',
+    },
+    '&.entity': {
+      cur: 'help',
+    },
+    '&.namespace': {
+      op: 0.8,
+    },
   },
-  '.token.doctype,.token.punctuation,.token.entity': {
-    color: mono1,
-  },
+
   '.token.attr-name,.token.class-name,.token.boolean,.token.constant,.token.number,.token.atrule': {
     color: hue6,
   },
@@ -74,7 +146,7 @@ export const css = ({mono1, mono2, mono3, hue1, hue2, hue3, hue4, hue5, hue52, h
   '.token.property,.token.tag,.token.symbol,.token.deleted,.token.important': {
     color: hue5,
   },
-  '.token.selector,.token.string,.token.char,.token.builtin,.token.inserted,.token.regex,.token.attr-value,.token.attr-value > .token.punctuation': {
+  '.token.selector,.token.char,.token.builtin,.token.inserted,.token.regex,.token.attr-value,.token.attr-value > .token.punctuation': {
     color: hue4,
   },
   '.token.variable,.token.operator,.token.function': {
@@ -112,18 +184,6 @@ export const css = ({mono1, mono2, mono3, hue1, hue2, hue3, hue4, hue5, hue52, h
   },
   '.token.code-snippet': {
     color: hue4,
-  },
-  '.token.bold': {
-    fw: 'bold',
-  },
-  '.token.comment,.token.italic': {
-    fs: 'italic',
-  },
-  '.token.entity': {
-    cur: 'help',
-  },
-  '.token.namespace': {
-    op: 0.8,
   },
 });
 

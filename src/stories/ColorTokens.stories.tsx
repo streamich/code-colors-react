@@ -11,8 +11,6 @@ const className = rule(css());
 //   "code-colors",
 // );
 
-import '../style';
-
 export default {
   component: (props: ColorTokensProps) => {
     return (
