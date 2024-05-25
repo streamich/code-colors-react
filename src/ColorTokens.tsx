@@ -52,7 +52,6 @@ export interface ColorTokensProps {
 export const ColorTokens: React.FC<ColorTokensProps> = ({
   code,
   lang,
-  prefix = "code-colors",
   as = "code",
   ...rest
 }) => {
@@ -62,17 +61,17 @@ export const ColorTokens: React.FC<ColorTokensProps> = ({
 
   React.useEffect(() => {
     setNode(null);
-    let unmounted = false;
+    let cancelled = false;
     tokens(code, lang)
       .then((ast) => {
-        if (!unmounted) {
+        if (!cancelled) {
           const [node] = astToReact(ast, code, 0, Tag, rest);
           setNode(node);
         }
       })
       .catch((err) => {});
     return () => {
-      unmounted = true;
+      cancelled = true;
     };
   }, [code]);
 

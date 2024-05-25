@@ -10,4 +10,4 @@ export const colors = (): CodeColors => {
 };
 
 export const tokens = async (code: string, lang?: string): Promise<TokenNode> =>
-  await colors().highlight(code, lang);
+  await colors().tokenize(code, lang);
