@@ -1,20 +1,17 @@
 # [2.0.0](https://github.com/streamich/code-colors-react/compare/v1.0.0...v2.0.0) (2024-05-25)
 
-
 ### Documentation
 
-* ✏️ update REAMDE ([d41b76d](https://github.com/streamich/code-colors-react/commit/d41b76d5657590d4b5e546930488ece58cd7be58))
-
+- ✏️ update REAMDE ([d41b76d](https://github.com/streamich/code-colors-react/commit/d41b76d5657590d4b5e546930488ece58cd7be58))
 
 ### Features
 
-* 🎸 bump major ([135fb22](https://github.com/streamich/code-colors-react/commit/135fb22368929c86f2f2e357603f5f549aa09f77))
-
+- 🎸 bump major ([135fb22](https://github.com/streamich/code-colors-react/commit/135fb22368929c86f2f2e357603f5f549aa09f77))
 
 ### BREAKING CHANGES
 
-* 🧨 bum major
-* 🧨 bump major
+- 🧨 bum major
+- 🧨 bump major
 
 # 1.0.0 (2024-05-25)
 
