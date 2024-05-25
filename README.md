@@ -49,7 +49,7 @@ You can do it in JavaScript like so:
 import { loadCss } from "thingies/lib/loadCss";
 
 const theme = "github";
-const href = `https://cdn.jsdelivr.net/npm/prism-themes@1.9.0/themes/${theme}.min.css`;
+const url = `https://cdn.jsdelivr.net/npm/prism-themes@1.9.0/themes/${theme}.min.css`;
 
-loadCss(href, "hljs");
+loadCss(url);
 ```
