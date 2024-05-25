@@ -4,12 +4,17 @@ React component for code syntax highlighting.
 
 **Why another code syntax highlighting package?**
 
-- This package is simple to use. It is very lightweight, it essentially just ships a single React component.
-- The `highlight.js` dependency is loaded from CDN asynchronously.
-- `highlight.js` is run in a Web Worker, so it doesn't block the main thread.
+- A simple to use React component.
+- It is very lightweight, only ships a small React component, which loads
+  tokenization script (~35Kb) in a Web Worker on demand, on first usage.
+- The Prism.js tokenization script is loaded from the CDN asynchronously.
+- Runs tokenization in a Web Worker, so it doesn't block the main thread.
+- Emits Prism.js compatible HTML, so you can use any Prism.js [themes](https://cdn.jsdelivr.net/npm/prism-themes@1.9.0/themes/).
 - No layout shifts before the code is highlighted. While the code is being
   highlighted in the Web Worker, the component renders plain text with the
   correct dimensions.
+- If code changes while it is being highlighted, the component will cancel the
+  previous highlighting and start a new one.
 
 ## Installation
 
