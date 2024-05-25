@@ -41,7 +41,8 @@
     "react-dom": "*"
   },
   "dependencies": {
-    "code-colors": "^2.2.0"
+    "code-colors": "^2.2.0",
+    "nano-theme": "^1.4.1"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.22.5",
