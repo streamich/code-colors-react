@@ -19,7 +19,7 @@ React component for code syntax highlighting.
 ## Installation
 
 ```sh
-npm i code-colors-react
+npm install code-colors-react
 ```
 
 ## Usage
