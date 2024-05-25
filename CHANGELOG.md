@@ -1,3 +1,15 @@
+# [3.0.0](https://github.com/streamich/code-colors-react/compare/v2.0.0...v3.0.0) (2024-05-25)
+
+
+### Features
+
+* 🎸 bump another major ([e3a6c62](https://github.com/streamich/code-colors-react/commit/e3a6c62622f0d5a7db4564cef816940892c576a3))
+
+
+### BREAKING CHANGES
+
+* 🧨 bump another major
+
 # [2.0.0](https://github.com/streamich/code-colors-react/compare/v1.0.0...v2.0.0) (2024-05-25)
 
 ### Documentation
