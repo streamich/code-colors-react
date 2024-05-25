@@ -1,6 +1,7 @@
 import * as React from "react";
 import { tokens } from "./util";
-import type { Token } from "./types";
+import type {Token} from "code-colors/lib";
+
 
 const { createElement: h } = React;
 
