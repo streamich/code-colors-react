@@ -1,4 +1,4 @@
-import type {CssLikeObject} from 'nano-theme';
+import {CssLikeObject, theme} from 'nano-theme';
 
 // const col1 = '#a151d2';
 // // const col2 = '#39464E';
@@ -7,9 +7,9 @@ import type {CssLikeObject} from 'nano-theme';
 // // const col5 = '#C82829';
 // // const col6 = '#8959A8';
 // // const col7 = '#C99E00';
-// const col8 = '#718C00';
+const col8 = '#718C00';
 // const col9 = '#ED5C65';
-const col10 = '#2795EE';
+const col10 = '';
 // const col11 = '#CD3C45';
 // const col12 = '#A0A1A7';
 // const col14 = '#444';
@@ -28,6 +28,8 @@ export interface ColorPalette {
   hue4?: string;
   hue5?: string;
   hue6?: string;
+  negative?: string;
+  positive?: string;
   selection: string;
   string?: string;
   keyword?: string;
@@ -61,12 +63,18 @@ export const palette: ColorPalette = {
   mono1: 'hsl(230, 8%, 24%)',
   mono2: 'hsl(230, 6%, 44%)',
   mono3: 'hsl(230, 4%, 64%)',
-  hue1: col10,
+  hue1: '#2795EE',
   hue2: 'hsl(221, 87%, 60%)',
   hue3: '#a626a4',
-  hue4: 'hsl(119, 34%, 47%)',
+  // hue4: 'hsl(119, 34%, 47%)',
+  // hue4: theme.color.color[6],
+  hue4: '#718C00',
   hue5: 'hsl(5, 74%, 59%)',
+  // hue5: theme.color.color[6],
   hue6: 'hsl(35, 99%, 36%)',
+  negative: theme.color.sem.negative[2],
+  // positive: theme.color.sem.positive[1],
+  positive: '#718C00',
   selection: 'hsl(230, 1%, 90%)',
 };
 
@@ -109,6 +117,8 @@ export const css = ({
   hue4 = mono1,
   hue5 = mono2,
   hue6 = mono3,
+  negative = hue5,
+  positive = hue4,
   selection,
 
   string: str = hue4,
@@ -252,14 +262,14 @@ export const css = ({
         color: mono3,
       },
       '&.inserted': {
-        color: 'green',
+        col: positive,
         '&.prefix': {
           ...backgroundPadding,
           bg: lighterBg,
         }
       },
       '&.deleted': {
-        color: 'red',
+        col: negative,
         '&.prefix': {
           ...backgroundPadding,
           bg: lighterBg,
