@@ -22,12 +22,12 @@ export interface ColorPalette {
   mono1: string;
   mono2?: string;
   mono3?: string;
-  hue1?: string;
-  hue2?: string;
-  hue3?: string;
-  hue4?: string;
-  hue5?: string;
-  hue6?: string;
+  col1?: string;
+  col2?: string;
+  col3?: string;
+  col4?: string;
+  col5?: string;
+  col6?: string;
   negative?: string;
   positive?: string;
   selection: string;
@@ -63,19 +63,20 @@ export const palette: ColorPalette = {
   mono1: 'hsl(230, 8%, 24%)',
   mono2: 'hsl(230, 6%, 44%)',
   mono3: 'hsl(230, 4%, 64%)',
-  hue1: '#2795EE',
-  hue2: 'hsl(221, 87%, 60%)',
-  hue3: '#a626a4',
+  col1: '#2795EE',
+  col2: 'hsl(221, 87%, 60%)',
+  col3: '#a626a4',
   // hue4: 'hsl(119, 34%, 47%)',
   // hue4: theme.color.color[6],
-  hue4: '#718C00',
-  hue5: 'hsl(5, 74%, 59%)',
+  col4: '#718C00',
+  col5: 'hsl(5, 74%, 59%)',
   // hue5: theme.color.color[6],
-  hue6: 'hsl(35, 99%, 36%)',
+  col6: 'hsl(35, 99%, 36%)',
   negative: theme.color.sem.negative[2],
   // positive: theme.color.sem.positive[1],
   positive: '#718C00',
   selection: 'hsl(230, 1%, 90%)',
+  // string: '#e00e44',
 };
 
 const redSquiggly: CssLikeObject = {
@@ -111,12 +112,12 @@ export const css = ({
   mono1,
   mono2 = mono1,
   mono3 = mono2,
-  hue1 = mono1,
-  hue2 = mono2,
-  hue3 = mono3,
-  hue4 = mono1,
-  hue5 = mono2,
-  hue6 = mono3,
+  col1: hue1 = mono1,
+  col2: hue2 = mono2,
+  col3: hue3 = mono3,
+  col4: hue4 = mono1,
+  col5: hue5 = mono2,
+  col6: hue6 = mono3,
   negative = hue5,
   positive = hue4,
   selection,
