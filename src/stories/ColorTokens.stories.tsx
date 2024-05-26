@@ -88,6 +88,27 @@ export const Benchmark = {
   },
 };
 
+export const Functions = {
+  args: {
+    code: `
+const fn = () => {};
+
+export function add(a, b) {
+  return a + b;
+}
+
+export const gg = {
+  a: () => true,
+  b() { return false; },
+  *c() { yield 1; },
+  async d() { return 2; },
+};
+`,
+    lang: "js",
+    className,
+  },
+};
+
 export const JavaScript = {
   args: {
     code: `
@@ -96,10 +117,10 @@ export const JavaScript = {
 var KEBAB_REGEX = /[A-Z]/g;
 
 var hash = function (str) {
-    var h = 5381, i = str.length;
+    var h = 5381, b = 1.23e3, i = str.length;
     with (window) {
       while (i) h = (h * 33) ^ str.charCodeAt(--i);
-      return '_' + (h >>> 0).toString(36);
+      return '_' + (h >>> -0).toString(36);
     }
 };
 
@@ -115,22 +136,22 @@ exports.create = function (config) {
             if ((typeof document !== 'object') || !document.getElementsByTagName('HTML')) {
                 console.error(
                     'nano-css detected browser environment because of "window" global, but ' +
-                    '"document" global seems to be defective.'
+                    '"document" global (http://example.com) seems to be defective.'
                 );
             }
         }
     }
 
     var renderer = assign({
-        raw: '',
-        pfx: '_',
-        client: client,
-        assign: assign,
+        raw: [true, false],
+        pfx: '',
+        client: null,
+        assign: undefined,
         stringify: JSON.stringify,
         kebab: function (prop) {
             return prop.replace(KEBAB_REGEX, '-$&').toLowerCase();
         },
-        decl: function (key, value) {
+        [Symbol()]: function (key, value) {
             key = renderer.kebab(key);
             return key + ':' + value + ';';
         },
@@ -138,7 +159,7 @@ exports.create = function (config) {
             return hash(renderer.stringify(obj));
         },
         selector: function (parent, selector) {
-            return parent + (selector[0] === ':' ? ''  : ' ') + selector;
+            return parent + (selector[0] === ':' ? ""  : ' ') + selector;
         },
     }, config);
 };
@@ -153,7 +174,11 @@ export const JSON = {
     code: `
 {
   "name": "one-light-syntax",
-  "theme": "syntax",
+  "theme": "",
+  "seq": 0,
+  "booleans": [false, true],
+  "lat-lng": [37.7749, 0.0],
+  "tokens": [1, null, 2, undefined],
   "version": "1.8.4",
   "description": "Atom One light syntax theme",
   "keywords": [
@@ -172,6 +197,24 @@ export const JSON = {
   },
 };
 
+export const Diff = {
+  args: {
+    code: `
+--- bar.yml	2014-12-16 11:43:41 +0800
++++ /Users/foo/Desktop/bar.yml	2014-12-31 11:28:08 +0800
+@@ -4,5 +4,5 @@
+project:
+  sources: "src/*.cpp"
+  headers: "src/*.h"
+-    qt: core
++    qt: core gui
+public_headers: "src/*.h"
+`,
+    lang: "diff",
+    className,
+  },
+};
+
 export const CSS = {
   args: {
     code: `
@@ -181,13 +224,27 @@ export const CSS = {
   gap: 1rem;
   transition: background 0.3s;
 }
+
 @media (min-width: 768px) {
   #container > .container {
     grid-template-rows: 1fr 1fr;
     cursor: pointer !important;
     background: url('https://example.com/image.jpg');
   }
-}    
+}
+
+body { 
+  font-family: 'Helvetica';
+  text-align: center; 
+}
+
+.main-box{ 
+  display: flex;
+  flex-wrap: wrap;
+}
+.one + .two > .three, .four { 
+  flex-basis: 40%;
+}
 `,
     lang: "css",
     className,
@@ -197,29 +254,32 @@ export const CSS = {
 const code3 = `
 <!DOCTYPE html>
 <html>
-<head>
-<style>
-  .container {
-    display: grid;
-    grid-template-rows: 1fr 2fr;
-    gap: 1rem;
-    transition: background 0.3s;
-  }
-  @media (min-width: 768px) {
-    #container > .container {
-      grid-template-rows: 1fr 1fr;
-      cursor: pointer !important;
-      background: url('https://example.com/image.jpg');
-    }
-  }  
-</style>
-</head>
-<body>
-
-<h1>This is a heading</h1>
-<p>This is a paragraph.</p>
-
-</body>
+  <head>
+    <style>
+      .container {
+        display: grid;
+        grid-template-rows: 1fr 2fr;
+        gap: 1rem;
+        transition: background 0.3s;
+      }
+      @media (min-width: 768px) {
+        #container > .container {
+          grid-template-rows: 1fr 1fr;
+          cursor: pointer !important;
+          background: url('https://example.com/image.jpg');
+        }
+      }  
+    </style>
+  </head>
+  <body id="MyApp">
+    <h1 alt="Yup, header">This is a heading</h1>
+    <p bool num="123">This is a paragraph.</p>
+    <a href="https://example.com"><b>This</b> is a link</a>
+    <script>
+      console.log('Hello World');
+      alert('Hello there...');
+    </script>
+  </body>
 </html>
 `;
 

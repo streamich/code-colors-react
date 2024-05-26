@@ -25,6 +25,7 @@ export interface ColorPalette {
   hue1?: string;
   hue2?: string;
   hue3?: string;
+  hue32?: string;
   hue4?: string;
   hue5?: string;
   hue52?: string;
@@ -65,7 +66,7 @@ export interface ColorPalette {
   selector?: string;
   inserted?: string;
   deleted?: string;
-  'function-defintion'?: string;
+  'function-definition'?: string;
 }
 
 export const palette: ColorPalette = {
@@ -75,7 +76,8 @@ export const palette: ColorPalette = {
   // hue1: 'hsl(198, 99%, 40%)',
   hue1: col10,
   hue2: 'hsl(221, 87%, 60%)',
-  hue3: 'hsl(301, 63%, 40%)',
+  hue3: '#a626a4',
+  hue32: '#6b0a6a',
   hue4: 'hsl(119, 34%, 47%)',
   hue5: 'hsl(5, 74%, 59%)',
   hue52: 'hsl(344, 84%, 43%)',
@@ -106,6 +108,18 @@ const redSquiggly: CssLikeObject = {
   }
 };
 
+const backgroundPadding: CssLikeObject = {
+  d: 'inline-block',
+  bdrad: '.2em',
+  mar: '-.1em',
+  pad: '.1em',
+};
+
+const redBackground: CssLikeObject = {
+  ...backgroundPadding,
+  bg: 'rgba(255,0,0,.08)',
+};
+
 export const css = ({
   mono1,
   mono2 = mono1,
@@ -113,6 +127,7 @@ export const css = ({
   hue1 = mono1,
   hue2 = mono2,
   hue3 = mono3,
+  hue32 = hue3,
   hue4 = mono1,
   hue5 = mono2,
   hue52,
@@ -127,148 +142,193 @@ export const css = ({
 
   string: str = hue4,
   keyword = hue3,
-  builtin = mono1,
-  'class-name': className = mono1,
-  function: func = mono1,
-  boolean = mono1,
-  number = mono1,
-  string = mono1,
-  char = mono1,
-  symbol = mono1,
-  regex = mono1,
-  url = mono1,
-  operator = mono1,
-  variable = mono1,
-  constant = mono1,
+  builtin = hue4,
+  'class-name': className = hue5,
+  function: func = hue2,
+  boolean = hue2,
+  number = hue6,
+  char = hue4,
+  symbol = hue5,
+  regex = hue4,
+  operator = hue1,
+  variable = hue2,
+  constant = hue6,
   property = mono1,
   punctuation = mono1,
-  important = mono1,
-  tag = mono1,
-  'attr-name': attrName = mono1,
-  'attr-value': attrValue = mono1,
-  doctype = mono1,
-  entity = mono1,
-  atrule = mono1,
-  selector = mono1,
-  inserted = mono1,
-  deleted = mono1,
-  'function-defintion': functionDefinition = mono1,
-}: ColorPalette = palette): CssLikeObject => ({
-  // https://prismjs.com/tokens.html
-  '.token': {
-    '&.string': {
-      col: str,
-    },
-    '&.comment,&.prolog,&.cdata': {
-      col: mono3,
-    },
-    '&.doctype,&.punctuation,&.entity': {
-      col: mono1,
-    },
-    '&.keyword': {
-      col: keyword,
-    },
-    // builtin
-    // class-name
-    // function
-    // boolean
-    // number
-    // string
-    // char
-    // symbol
-    // regex
-    // url
-    // operator
-    // variable
-    // constant
-    // property
-    // punctuation
-    // important
-    // tag
-    // attr-name
-    // attr-value
-    // doctype
-    // entity
-    // atrule
-    // selector
-    // inserted
-    // deleted
-    // function-defintion
-    // function
-    '&.bold': {
-      fw: 'bold',
-    },
-    '&.comment,&.italic': {
-      fs: 'italic',
-    },
-    '&.entity': {
-      cur: 'help',
-    },
-    '&.namespace': {
-      op: 0.8,
-    },
-  },
+  important = hue5,
+  tag = hue5,
+  'attr-name': attrName = mono3,
+  'attr-value': attrValue = hue4,
+  atrule = hue3,
+  selector = hue1,
+  'function-definition': functionDefinition = mono1,
+}: ColorPalette = palette): CssLikeObject => {
+  const lightBg = 'rgba(127,127,127,.1)';
+  const lighterBg = 'rgba(127,127,127,.04)';
 
-  '.language-js': {
+  return {
+    // https://prismjs.com/tokens.html
     '.token': {
+      '&.comment,&.prolog,&.cdata': {
+        col: mono3,
+      },
+      '&.doctype': {
+        col: mono1,
+        fw: 'bold',
+      },
+      '&.entity': {
+        col: mono1,
+        cur: 'help',
+      },
       '&.keyword': {
-        '&[text=var],&[text=while]': redSquiggly,
+        col: keyword,
+        '&[text=null],&[text=nil],&[text=undefined]': {
+          col: mono3,
+        },
+      },
+      '&.builtin': {
+        col: builtin,
+      },
+      '&.class-name': {
+        col: className,
+        fw: 'bold',
+      },
+      '&.important': {
+        col: important,
+        ...redSquiggly,
       },
       '&.function': {
-        '&[text=eval]': redSquiggly,
+        col: func,
+      },
+      '&.boolean': {
+        col: boolean,
+        fw: 'bold',
+        '&[text=false]': redBackground,
+      },
+      '&.number': {
+        ...backgroundPadding,
+        col: number,
+        '&:hover': {
+          bg: lightBg,
+        },
+        '&[text="0"],&[text="0.0"]': redBackground,
+      },
+      '&.string': {
+        col: str,
+        '&[text="\'\'"],&[text=\'""\']': redBackground,
+        '&:hover': {
+          td: 'underline',
+        },
+      },
+      '&.char': {
+        col: char,
+      },
+      '&.symbol': {
+        col: symbol,
+      },
+      '&.regex': {
+        col: regex,
+        '&:hover': {
+          td: 'underline',
+        },
+      },
+      '&.url.string': {
+        td: 'underline',
+      },
+      '&.operator': {
+        col: operator,
+      },
+      '&.variable': {
+        col: variable,
+      },
+      '&.constant': {
+        col: constant,
+      },
+      '&.property': {
+        col: property,
+        '&:hover': {
+          td: 'underline',
+        },
+      },
+      '&.punctuation': {
+        col: punctuation,
+        '&[text="."]': {
+          color: mono3,
+        },
+      },
+      '&.tag': {
+        col: tag,
+      },
+      '&.attr-name': {
+        col: attrName,
+      },
+      '&.attr-value': {
+        col: attrValue,
+      },
+      '&.atrule,&.rule': {
+        col: atrule,
+      },
+      '&.atrule': {
+        ...backgroundPadding,
+        bg: lighterBg,
+      },
+      '&.selector': {
+        color: selector,
+      },
+      '&.coord': {
+        color: mono3,
+      },
+      '&.inserted': {
+        color: 'green',
+        '&.prefix': {
+          ...backgroundPadding,
+          bg: lighterBg,
+        }
+      },
+      '&.deleted': {
+        color: 'red',
+        '&.prefix': {
+          ...backgroundPadding,
+          bg: lighterBg,
+        }
+      },
+      '&.content': {
+        color: hue2,
+      },
+      '&.code-snippet': {
+        color: hue4,
+      },
+      '&.bold': {
+        fw: 'bold',
+      },
+      '&.italic': {
+        fs: 'italic',
+      },
+      '&.namespace': {
+        op: 0.8,
       },
     },
-  },
-
-  '.token.attr-name,.token.class-name,.token.boolean,.token.constant,.token.number,.token.atrule': {
-    color: hue6,
-  },
-  '.token.important,.token.atrule,.token.rule': {
-    color: hue3,
-  },
-  '.token.property,.token.tag,.token.symbol,.token.deleted,.token.important': {
-    color: hue5,
-  },
-  '.token.selector,.token.char,.token.builtin,.token.inserted,.token.regex,.token.attr-value,.token.attr-value > .token.punctuation': {
-    color: hue4,
-  },
-  '.token.variable,.token.operator,.token.function': {
-    color: hue2,
-  },
-  '.token.url': {
-    color: hue1,
-  },
-  '.token.attr-value > .token.punctuation.attr-equals,.token.special-attr > .token.attr-value > .token.value.css': {
-    color: mono1,
-  },
-  '.token.url,.token.string.url': {
-    color: hue4,
-  },
-  '.token.selector': {
-    color: hue1,
-  },
-  '.token.property': {
-    color: mono1,
-  },
-  '.language-css .token.property': {
-    color: mono3,
-  },
-  '.token.function,.token.url > .token.function': {
-    color: hue1,
-  },
-  '.token.null.keyword': {
-    color: hue6,
-  },
-  '.token.content': {
-    color: hue2,
-  },
-  '.token.blockquote.punctuation,.token.hr.punctuation': {
-    color: mono3,
-  },
-  '.token.code-snippet': {
-    color: hue4,
-  },
-});
+  
+    '.language-js,.language-javascript': {
+      '.token': {
+        '&.keyword': {
+          '&[text=var],&[text=with]': redSquiggly,
+        },
+        '&.function': {
+          '&[text=eval],&[text=alert]': redSquiggly,
+        },
+      },
+    },
+  
+    '.language-css': {
+      '.token': {
+        '&.property': {
+          col: mono3,
+        },
+      },
+    },
+  };
+};
 
 // /**
 //  * One Light theme for prism.js
