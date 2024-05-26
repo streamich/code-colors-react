@@ -1,21 +1,15 @@
 import * as React from "react";
-import { ColorTokens, ColorTokensProps } from "..";
-import { loadCss } from "thingies/lib/loadCss";
+import { Markup, MarkupProps } from "../Markup";
 import {rule} from 'nano-theme';
 import {css} from '../style';
 
 const className = rule(css());
 
-// loadCss(
-//   "https://cdn.jsdelivr.net/npm/prism-themes@1.9.0/themes/prism-one-light.min.css",
-//   "code-colors",
-// );
-
 export default {
-  component: (props: ColorTokensProps) => {
+  component: (props: MarkupProps) => {
     return (
       <pre style={{fontSize: '13.6px'}}>
-        <ColorTokens {...props} />
+        <Markup {...props} />
       </pre>
     );
   },
