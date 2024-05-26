@@ -84,7 +84,7 @@ export const palette: ColorPalette = {
 
 const redSquiggly: CssLikeObject = {
   marb: '-2px',
-  bdb: '2px dotted red',
+  bdb: '2px dotted rgba(255,0,0,.6)',
   d: 'inline-block',
   pos: 'relative',
   '&:after': {
@@ -92,7 +92,7 @@ const redSquiggly: CssLikeObject = {
     content: '""',
     w: '100%',
     h: '4px',
-    bdb: '2px dotted red',
+    bdb: '2px dotted rgba(255,0,0,.6)',
     pos: 'absolute',
     t: 'calc(1em - 1px)',
     l: '-2px',
