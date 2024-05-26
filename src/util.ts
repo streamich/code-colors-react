@@ -8,5 +8,7 @@ export const colors = (): CodeColors => {
   return __colors;
 };
 
-export const tokens = async (code: string, lang?: string) =>
-  await colors().tokenize(code, lang);
+export const tokens = async (code: string, lang?: string) => {
+  // await new Promise(r => setTimeout(r, 1000));
+  return await colors().tokenize(code, lang);
+};
