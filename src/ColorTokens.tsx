@@ -25,10 +25,19 @@ const astToReact = (
     className: "token " + types.join(" "),
     "data-lang": language,
   };
-  return [
-    h('span', props, ...children),
-    nodeTextLength,
-  ];
+  const firstChild = children[0];
+  if (children.length === 1 && typeof firstChild === 'string' && children.length <= 16) {
+    props['text'] = firstChild;
+    return [
+      h('span', props, firstChild),
+      nodeTextLength,
+    ];
+  } else {
+    return [
+      h('span', props, ...children),
+      nodeTextLength,
+    ];
+  }
 };
 
 export interface ColorTokensProps {

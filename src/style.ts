@@ -20,16 +20,16 @@ const col10 = '#2795EE';
 
 export interface ColorPalette {
   mono1: string;
-  mono2: string;
-  mono3: string;
-  hue1: string;
-  hue2: string;
-  hue3: string;
-  hue4: string;
-  hue5: string;
-  hue52: string;
-  hue6: string;
-  hue62: string;
+  mono2?: string;
+  mono3?: string;
+  hue1?: string;
+  hue2?: string;
+  hue3?: string;
+  hue4?: string;
+  hue5?: string;
+  hue52?: string;
+  hue6?: string;
+  hue62?: string;
   fg: string;
   bg: string;
   gutter: string;
@@ -39,7 +39,33 @@ export interface ColorPalette {
   // const colorSyntaxGutterBackgroundColorSelected = 'hsl(230, 1%, 90%)';
   // const colorSyntaxCursorLine = 'hsla(230, 8%, 24%, 0.05)';
 
-  str?: string;
+  string?: string;
+  keyword?: string;
+  builtin?: string;
+  'class-name'?: string;
+  function?: string;
+  boolean?: string;
+  number?: string;
+  char?: string;
+  symbol?: string;
+  regex?: string;
+  url?: string;
+  operator?: string;
+  variable?: string;
+  constant?: string;
+  property?: string;
+  punctuation?: string;
+  important?: string;
+  tag?: string;
+  'attr-name'?: string;
+  'attr-value'?: string;
+  doctype?: string;
+  entity?: string;
+  atrule?: string;
+  selector?: string;
+  inserted?: string;
+  deleted?: string;
+  'function-defintion'?: string;
 }
 
 export const palette: ColorPalette = {
@@ -63,17 +89,34 @@ export const palette: ColorPalette = {
   selection: 'hsl(230, 1%, 90%)',
 };
 
+const redSquiggly: CssLikeObject = {
+  marb: '-2px',
+  bdb: '2px dotted red',
+  d: 'inline-block',
+  pos: 'relative',
+  '&:after': {
+    d: 'block',
+    content: '""',
+    w: '100%',
+    h: '4px',
+    bdb: '2px dotted red',
+    pos: 'absolute',
+    t: 'calc(1em - 1px)',
+    l: '-2px',
+  }
+};
+
 export const css = ({
   mono1,
-  mono2,
-  mono3,
-  hue1,
-  hue2,
-  hue3,
-  hue4,
-  hue5,
+  mono2 = mono1,
+  mono3 = mono2,
+  hue1 = mono1,
+  hue2 = mono2,
+  hue3 = mono3,
+  hue4 = mono1,
+  hue5 = mono2,
   hue52,
-  hue6,
+  hue6 = mono3,
   hue62,
   fg,
   bg,
@@ -82,7 +125,34 @@ export const css = ({
   accent,
   selection,
 
-  str = hue4,
+  string: str = hue4,
+  keyword = hue3,
+  builtin = mono1,
+  'class-name': className = mono1,
+  function: func = mono1,
+  boolean = mono1,
+  number = mono1,
+  string = mono1,
+  char = mono1,
+  symbol = mono1,
+  regex = mono1,
+  url = mono1,
+  operator = mono1,
+  variable = mono1,
+  constant = mono1,
+  property = mono1,
+  punctuation = mono1,
+  important = mono1,
+  tag = mono1,
+  'attr-name': attrName = mono1,
+  'attr-value': attrValue = mono1,
+  doctype = mono1,
+  entity = mono1,
+  atrule = mono1,
+  selector = mono1,
+  inserted = mono1,
+  deleted = mono1,
+  'function-defintion': functionDefinition = mono1,
 }: ColorPalette = palette): CssLikeObject => ({
   // https://prismjs.com/tokens.html
   '.token': {
@@ -90,12 +160,14 @@ export const css = ({
       col: str,
     },
     '&.comment,&.prolog,&.cdata': {
-      color: mono3,
+      col: mono3,
     },
     '&.doctype,&.punctuation,&.entity': {
-      color: mono1,
+      col: mono1,
     },
-    // keyword
+    '&.keyword': {
+      col: keyword,
+    },
     // builtin
     // class-name
     // function
@@ -137,10 +209,21 @@ export const css = ({
     },
   },
 
+  '.language-js': {
+    '.token': {
+      '&.keyword': {
+        '&[text=var],&[text=while]': redSquiggly,
+      },
+      '&.function': {
+        '&[text=eval]': redSquiggly,
+      },
+    },
+  },
+
   '.token.attr-name,.token.class-name,.token.boolean,.token.constant,.token.number,.token.atrule': {
     color: hue6,
   },
-  '.token.keyword,.token.important,.token.atrule,.token.rule': {
+  '.token.important,.token.atrule,.token.rule': {
     color: hue3,
   },
   '.token.property,.token.tag,.token.symbol,.token.deleted,.token.important': {

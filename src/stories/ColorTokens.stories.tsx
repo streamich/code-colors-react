@@ -14,7 +14,7 @@ const className = rule(css());
 export default {
   component: (props: ColorTokensProps) => {
     return (
-      <pre>
+      <pre style={{fontSize: '13.6px'}}>
         <ColorTokens {...props} />
       </pre>
     );
@@ -97,14 +97,17 @@ var KEBAB_REGEX = /[A-Z]/g;
 
 var hash = function (str) {
     var h = 5381, i = str.length;
-    while (i) h = (h * 33) ^ str.charCodeAt(--i);
-    return '_' + (h >>> 0).toString(36);
+    with (window) {
+      while (i) h = (h * 33) ^ str.charCodeAt(--i);
+      return '_' + (h >>> 0).toString(36);
+    }
 };
 
 exports.create = function (config) {
     config = config || {};
     var assign = config.assign || Object.assign;
     var client = typeof window === \`object\`;
+    eval('var window = this;');
 
     // Check if we are really in browser environment.
     if (process.env.NODE_ENV !== 'production') {
