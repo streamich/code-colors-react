@@ -2,7 +2,6 @@ import * as React from "react";
 import { tokens } from "./util";
 import type {Token} from "code-colors/lib";
 
-
 const { createElement: h } = React;
 
 const astToReact = (
@@ -11,7 +10,7 @@ const astToReact = (
   pos: number,
 ): [node: React.ReactNode, length: number] => {
   if (typeof ast === "number") return [code.slice(pos, pos + ast), ast];
-  const [types, tokens, language] = ast;
+  const [types, tokens] = ast;
   const children: React.ReactNode[] = [];
   const length = tokens.length;
   let nodeTextLength = 0;
@@ -23,7 +22,6 @@ const astToReact = (
   }
   const props = {
     className: "token " + types.join(" "),
-    "data-lang": language,
   };
   const firstChild = children[0];
   if (children.length === 1 && typeof firstChild === 'string' && children.length <= 16) {
@@ -74,5 +72,5 @@ export const ColorTokens: React.FC<ColorTokensProps> = ({
     };
   }, [code]);
 
-  return <Tag {...rest}>{node}</Tag>;
+  return h(Tag, rest, node);
 };
