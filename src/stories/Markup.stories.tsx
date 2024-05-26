@@ -335,26 +335,37 @@ const Str: React.FC<{str: string}> = ({str}) => {
   if (str[0] === '"' && str[str.length - 1] === '"') {
     return (
       <>
-        <span style={{color: '#aaa'}}>"</span>
+        <span style={{color: '#ccc'}}>"</span>
         <span className="token string">{str.slice(1, -1)}</span>
-        <span style={{color: '#aaa'}}>"</span>
+        <span style={{color: '#ccc'}}>"</span>
       </>
     );
   }
 
-  return str;
+  if (str[0] === "'" && str[str.length - 1] === "'") {
+    return (
+      <>
+        <span style={{color: '#ccc'}}>'</span>
+        <span className="token string">{str.slice(1, -1)}</span>
+        <span style={{color: '#ccc'}}>'</span>
+      </>
+    );
+  }
+
+  return <span className="token string">{str}</span>;
 };
 
 export const DecorateStrings = {
   args: {
     code: `
-const fn = () => "hello world";
+const fn = () => "hello world" + ' ' + \`!\`;
 `,
     lang: "js",
     className,
     decorate: (token, children, code, pos) => {
       if (Array.isArray(token)) {
         const [types, stream] = token;
+        // console.log(types, stream);
         if (types[0] === 'string' && stream.length === 1 && typeof stream[0] === 'number') {
           return (
             <Str str={code.slice(pos, pos + stream[0])} />

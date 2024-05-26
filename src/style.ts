@@ -202,6 +202,9 @@ export const css = ({
         '&:hover': {
           td: 'underline',
         },
+        '&.template-punctuation:hover': {
+          td: 'none',
+        },
       },
       '&.char': {
         col: char,
