@@ -308,3 +308,59 @@ export const Jsx = {
     className,
   },
 };
+
+export const DecorateNumbers = {
+  args: {
+    code: `
+const fn = () => 123;
+`,
+    lang: "js",
+    className,
+    decorate: (token, children, code, pos) => {
+      if (Array.isArray(token)) {
+        const [types] = token;
+        if (types[0] === 'number') {
+          return (
+            <span style={{border: '1px solid red'}}>
+              {children}
+            </span>
+          );
+        }
+      }
+    },
+  },
+};
+
+const Str: React.FC<{str: string}> = ({str}) => {
+  if (str[0] === '"' && str[str.length - 1] === '"') {
+    return (
+      <>
+        <span style={{color: '#aaa'}}>"</span>
+        <span className="token string">{str.slice(1, -1)}</span>
+        <span style={{color: '#aaa'}}>"</span>
+      </>
+    );
+  }
+
+  return str;
+};
+
+export const DecorateStrings = {
+  args: {
+    code: `
+const fn = () => "hello world";
+`,
+    lang: "js",
+    className,
+    decorate: (token, children, code, pos) => {
+      if (Array.isArray(token)) {
+        const [types, stream] = token;
+        if (types[0] === 'string' && stream.length === 1 && typeof stream[0] === 'number') {
+          return (
+            <Str str={code.slice(pos, pos + stream[0])} />
+          );
+        }
+      }
+    },
+  },
+};

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { tokens } from "./util";
-import type {Token} from "code-colors/lib";
+import type { Token } from "code-colors/lib";
 
 const { createElement: h } = React;
 
@@ -8,6 +8,7 @@ const astToReact = (
   ast: Token,
   code: string,
   pos: number,
+  decorate?: DecorateToken,
 ): [node: React.ReactNode, length: number] => {
   if (typeof ast === "number") return [code.slice(pos, pos + ast), ast];
   const [types, tokens] = ast;
@@ -16,9 +17,13 @@ const astToReact = (
   let nodeTextLength = 0;
   for (let i = 0; i < length; i++) {
     const token = tokens[i];
-    const [node, len] = astToReact(token, code, pos + nodeTextLength);
+    const offset = pos + nodeTextLength;
+    const [node, len] = astToReact(token, code, offset, decorate);
     nodeTextLength += len;
-    children.push(node);
+    let node2: React.ReactNode | undefined;
+    children.push(decorate
+      ? ((node2 = decorate(token, node, code, offset)), node2 === undefined ? node : node2)
+      : node);
   }
   const props = {
     className: "token " + types.join(" "),
@@ -38,6 +43,8 @@ const astToReact = (
   }
 };
 
+export type DecorateToken = (token: Token, children: React.ReactNode, code: string, pos: number) => React.ReactNode;
+
 export interface MarkupProps {
   code: string;
   as?: string;
@@ -50,6 +57,12 @@ export interface MarkupProps {
    */
   renderWaiting?: (props: MarkupProps) => React.ReactNode;
 
+  /**
+   * A wrapper function which allows to decorate the token with additional
+   * JSX elements.
+   */
+  decorate?: DecorateToken;
+
   [key: string]: unknown;
 }
 
@@ -59,6 +72,7 @@ export const Markup: React.FC<MarkupProps> = (props) => {
     lang,
     as = "code",
     renderWaiting,
+    decorate,
     ...rest
   } = props;
   const [node, setNode] = React.useState<React.ReactNode | null>(null);
@@ -71,7 +85,7 @@ export const Markup: React.FC<MarkupProps> = (props) => {
     tokens(code, lang)
       .then((ast) => {
         if (!cancelled) {
-          const [node] = astToReact(ast, code, 0);
+          const [node] = astToReact(ast, code, 0, decorate);
           setNode(node);
         }
       })
@@ -79,7 +93,7 @@ export const Markup: React.FC<MarkupProps> = (props) => {
     return () => {
       cancelled = true;
     };
-  }, [code]);
+  }, [code, decorate]);
 
   rest.children = node || (renderWaiting ? renderWaiting(props) : h('span', {style: {opacity: .5}}, code));
 
