@@ -316,7 +316,7 @@ const fn = () => 123;
 `,
     lang: "js",
     className,
-    decorate: (token, children, code, pos) => {
+    decorate: (token, children, lang, code, pos) => {
       if (Array.isArray(token)) {
         const [types] = token;
         if (types[0] === 'number') {
@@ -362,11 +362,14 @@ const fn = () => "hello world" + ' ' + \`!\`;
 `,
     lang: "js",
     className,
-    decorate: (token, children, code, pos) => {
+    decorate: (token, children, lang, code, pos) => {
+      console.log(1, token);
       if (Array.isArray(token)) {
+        console.log(2, token);
         const [types, stream] = token;
         // console.log(types, stream);
         if (types[0] === 'string' && stream.length === 1 && typeof stream[0] === 'number') {
+          console.log(3, token);
           return (
             <Str str={code.slice(pos, pos + stream[0])} />
           );

@@ -8,6 +8,7 @@ const astToReact = (
   ast: Token,
   code: string,
   pos: number,
+  lang: string,
   decorate?: DecorateToken,
 ): [node: React.ReactNode, length: number] => {
   if (typeof ast === "number") return [code.slice(pos, pos + ast), ast];
@@ -18,11 +19,11 @@ const astToReact = (
   for (let i = 0; i < length; i++) {
     const token = tokens[i];
     const offset = pos + nodeTextLength;
-    const [node, len] = astToReact(token, code, offset, decorate);
+    const [node, len] = astToReact(token, code, offset, lang, decorate);
     nodeTextLength += len;
     let node2: React.ReactNode | undefined;
     children.push(decorate
-      ? ((node2 = decorate(token, node, code, offset)), node2 === undefined ? node : node2)
+      ? ((node2 = decorate(token, node, lang, code, offset)), node2 === undefined ? node : node2)
       : node);
   }
   const props = {
@@ -43,7 +44,7 @@ const astToReact = (
   }
 };
 
-export type DecorateToken = (token: Token, children: React.ReactNode, code: string, pos: number) => React.ReactNode;
+export type DecorateToken = (token: Token, children: React.ReactNode, lang: string, code: string, pos: number) => React.ReactNode;
 
 export interface MarkupProps {
   code: string;
@@ -85,7 +86,13 @@ export const Markup: React.FC<MarkupProps> = (props) => {
     tokens(code, lang)
       .then((ast) => {
         if (!cancelled) {
-          const [node] = astToReact(ast, code, 0, decorate);
+          let realLang: string = lang || 'clike';
+          if (Array.isArray(ast[0]) && typeof ast[0][0] === 'string') {
+            if (ast[0][0].startsWith('language-')) {
+              realLang = ast[0][0].slice(9);
+            }
+          }
+          const [node] = astToReact(ast, code, 0, realLang, decorate);
           setNode(node);
         }
       })
