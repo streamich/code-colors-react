@@ -75,6 +75,30 @@ export const gg = {
     lang: "js",
   },
 
+  Types: {
+    code: `export const types = {
+  num: 123,
+  zero: 0,
+  doubleZero: 0.0,
+  float: 1.23,
+  negative: -1,
+  t: true,
+  f: false,
+  nil: null,
+  undef: undefined,
+  str: 'hello world',
+  str2: "hello world",
+  str3: \`hello world\`,
+  arr: [1, 2, 3],
+  nestedArr: [[1, 2], [3, 4]],
+  obj: {a: 1, b: 2},
+  regex: /hello/,
+  date: new Date(),
+};
+`,
+    lang: "jsx",
+  },
+
   JavaScript: {
     code: `
 'use strict';

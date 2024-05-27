@@ -1,15 +1,15 @@
 import {CssLikeObject, theme} from 'nano-theme';
 
 // const col1 = '#a151d2';
-// // const col2 = '#39464E';
+// const col2 = '#39464E';
 // const col3 = '#ED5C65';
-// // const col4 = '#666969';
-// // const col5 = '#C82829';
-// // const col6 = '#8959A8';
-// // const col7 = '#C99E00';
-const col8 = '#718C00';
+// const col4 = '#666969';
+// const col5 = '#C82829';
+// const col6 = '#8959A8';
+// const col7 = '#C99E00';
+// const col8 = '#718C00';
 // const col9 = '#ED5C65';
-const col10 = '';
+// const col10 = '';
 // const col11 = '#CD3C45';
 // const col12 = '#A0A1A7';
 // const col14 = '#444';
@@ -38,6 +38,7 @@ export interface ColorPalette {
   function?: string;
   boolean?: string;
   number?: string;
+  float?: string;
   char?: string;
   symbol?: string;
   regex?: string;
@@ -111,37 +112,38 @@ export const css = ({
   mono1,
   mono2 = mono1,
   mono3 = mono2,
-  col1: hue1 = mono1,
-  col2: hue2 = mono2,
-  col3: hue3 = mono3,
-  col4: hue4 = mono1,
-  col5: hue5 = mono2,
-  col6: hue6 = mono3,
-  negative = hue5,
-  positive = hue4,
+  col1 = mono1,
+  col2 = mono2,
+  col3 = mono3,
+  col4 = mono1,
+  col5 = mono2,
+  col6 = mono3,
+  negative = col5,
+  positive = col4,
   selection,
 
-  string: str = hue4,
-  keyword = hue3,
-  builtin = hue4,
-  'class-name': className = hue5,
-  function: func = hue2,
-  boolean = hue2,
-  number = hue6,
-  char = hue4,
-  symbol = hue5,
-  regex = hue4,
-  operator = hue1,
-  variable = hue2,
-  constant = hue6,
+  string: str = col4,
+  keyword = col3,
+  builtin = col4,
+  'class-name': className = col5,
+  function: func = col2,
+  boolean = col2,
+  number = col6,
+  float = col5,
+  char = col4,
+  symbol = col5,
+  regex = col4,
+  operator = col1,
+  variable = col2,
+  constant = col6,
   property = mono1,
   punctuation = mono1,
-  important = hue5,
-  tag = hue5,
+  important = col5,
+  tag = col5,
   'attr-name': attrName = mono3,
-  'attr-value': attrValue = hue4,
-  atrule = hue3,
-  selector = hue1,
+  'attr-value': attrValue = col4,
+  atrule = col3,
+  selector = col1,
 }: ColorPalette = palette): CssLikeObject => {
   const lightBg = 'rgba(127,127,127,.1)';
   const lighterBg = 'rgba(127,127,127,.04)';
@@ -194,6 +196,9 @@ export const css = ({
           bg: lightBg,
         },
         '&[text="0"],&[text="0.0"]': redBackground,
+        '&[text*="."]': {
+          col: float,
+        },
       },
       '&.string': {
         col: str,
@@ -278,10 +283,10 @@ export const css = ({
         }
       },
       '&.content': {
-        color: hue2,
+        color: col2,
       },
       '&.code-snippet': {
-        color: hue4,
+        color: col4,
       },
       '&.bold': {
         fw: 'bold',

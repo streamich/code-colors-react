@@ -35,6 +35,12 @@ export const Benchmark = {
   },
 };
 
+export const Types = {
+  args: {
+    ...snippets.Types,
+  },
+};
+
 export const Functions = {
   args: {
     ...snippets.Functions,
