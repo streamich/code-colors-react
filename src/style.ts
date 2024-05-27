@@ -76,10 +76,6 @@ export const palette: ColorPalette = {
   // positive: theme.color.sem.positive[1],
   positive: '#718C00',
   selection: 'hsl(230, 1%, 90%)',
-  string: '#e00e44',
-  // number: '#e00e44',
-  number: '#0a8F3F',
-  boolean: '#411888',
 };
 
 const redSquiggly: CssLikeObject = {
@@ -189,7 +185,6 @@ export const css = ({
       },
       '&.boolean': {
         col: boolean,
-        // fw: 'bold',
         '&[text=false]': redBackground,
       },
       '&.number': {
@@ -243,7 +238,7 @@ export const css = ({
       '&.punctuation': {
         col: punctuation,
         '&[text="."]': {
-          color: mono3,
+          col: mono3,
         },
       },
       '&.tag': {
@@ -263,10 +258,10 @@ export const css = ({
         bg: lighterBg,
       },
       '&.selector': {
-        color: selector,
+        col: selector,
       },
       '&.coord': {
-        color: mono3,
+        col: mono3,
       },
       '&.inserted': {
         col: positive,
@@ -295,7 +290,7 @@ export const css = ({
         fs: 'italic',
       },
       '&.namespace': {
-        op: 0.8,
+        op: .8,
       },
     },
   
