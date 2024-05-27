@@ -58,6 +58,8 @@ export interface ColorPalette {
   selector?: string;
   inserted?: string;
   deleted?: string;
+  nil?: string;
+  undef?: string;
 }
 
 export const palette: ColorPalette = {
@@ -129,7 +131,7 @@ export const css = ({
   function: func = col2,
   boolean = col2,
   number = col6,
-  float = col5,
+  float = number,
   char = col4,
   symbol = col5,
   regex = col4,
@@ -144,14 +146,18 @@ export const css = ({
   'attr-value': attrValue = col4,
   atrule = col3,
   selector = col1,
+  nil = mono3,
+  undef = mono3,
 }: ColorPalette = palette): CssLikeObject => {
   const lightBg = 'rgba(127,127,127,.1)';
   const lighterBg = 'rgba(127,127,127,.04)';
 
   return {
+    col: mono1,
     '::selection': {
       bg: selection,
       col: 'inherit',
+      bdrad: '.2em',
     },
     '.token': {
       '&.comment,&.prolog,&.cdata': {
@@ -167,8 +173,11 @@ export const css = ({
       },
       '&.keyword': {
         col: keyword,
-        '&[text=null],&[text=nil],&[text=undefined]': {
-          col: mono3,
+        '&[text=null],&[text=nil]': {
+          col: nil,
+        },
+        '&[text=undefined]': {
+          col: undef,
         },
       },
       '&.builtin': {
@@ -237,7 +246,9 @@ export const css = ({
       '&.property': {
         col: property,
         '&:hover': {
-          td: 'underline',
+          // td: 'underline',
+          ...backgroundPadding,
+          bg: lightBg,
         },
       },
       '&.punctuation': {

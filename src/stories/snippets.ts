@@ -78,9 +78,9 @@ export const gg = {
   Types: {
     code: `export const types = {
   num: 123,
+  float: 1.23,
   zero: 0,
   doubleZero: 0.0,
-  float: 1.23,
   negative: -1,
   t: true,
   f: false,
