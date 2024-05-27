@@ -11,7 +11,7 @@ export const light: ColorPalette = {
   boolean: '#411888',
   nil: theme.g(0, 0.45),
   undef: theme.g(0, 0.25),
-  selection: theme.g(0.92),
+  selection: theme.g(0, 0.08),
 };
 
 export const dark: ColorPalette = {
@@ -27,9 +27,8 @@ export const dark: ColorPalette = {
   col6: 'hsl(29, 54%, 61%)',
   number: '#0FaF4F',
   float: '#51a8b3',
-  zero: '#94AA11',
   boolean: '#9168c8',
   nil: darkTheme.g(0, 0.45),
   undef: darkTheme.g(0, 0.25),
-  selection: darkTheme.g(0.9),
+  selection: darkTheme.g(0, 0.1),
 };
