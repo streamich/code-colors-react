@@ -1,6 +1,6 @@
 export type Snippet = {
   code: string;
-  lang: string,
+  lang: string;
 };
 
 export const snippets: Record<string, Snippet> = {
@@ -153,7 +153,7 @@ exports.create = function (config) {
     }, config);
 };
 `,
-    lang: 'js',
+    lang: "js",
   },
 
   JSON: {
@@ -261,7 +261,7 @@ body {
   </body>
 </html>
 `,
-    lang: 'html',
+    lang: "html",
   },
 
   Jsx: {
@@ -280,7 +280,7 @@ const Component = () => {
   );
 };
 `,
-    lang: 'jsx',
+    lang: "jsx",
   },
 
   Rust: {

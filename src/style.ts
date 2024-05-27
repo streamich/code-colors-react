@@ -1,4 +1,4 @@
-import {CssLikeObject, theme} from 'nano-theme';
+import { CssLikeObject, theme } from "nano-theme";
 
 // const col1 = '#a151d2';
 // const col2 = '#39464E';
@@ -34,7 +34,7 @@ export interface ColorPalette {
   string?: string;
   keyword?: string;
   builtin?: string;
-  'class-name'?: string;
+  "class-name"?: string;
   function?: string;
   boolean?: string;
   number?: string;
@@ -50,8 +50,8 @@ export interface ColorPalette {
   punctuation?: string;
   important?: string;
   tag?: string;
-  'attr-name'?: string;
-  'attr-value'?: string;
+  "attr-name"?: string;
+  "attr-value"?: string;
   doctype?: string;
   entity?: string;
   atrule?: string;
@@ -63,51 +63,51 @@ export interface ColorPalette {
 }
 
 export const palette: ColorPalette = {
-  mono1: 'hsl(230, 8%, 24%)',
-  mono2: 'hsl(230, 6%, 44%)',
-  mono3: 'hsl(230, 4%, 64%)',
-  col1: '#2795EE',
-  col2: 'hsl(221, 87%, 60%)',
-  col3: '#a626a4',
+  mono1: "hsl(230, 8%, 24%)",
+  mono2: "hsl(230, 6%, 44%)",
+  mono3: "hsl(230, 4%, 64%)",
+  col1: "#2795EE",
+  col2: "hsl(221, 87%, 60%)",
+  col3: "#a626a4",
   // hue4: 'hsl(119, 34%, 47%)',
   // hue4: theme.color.color[6],
-  col4: '#718C00',
-  col5: 'hsl(5, 74%, 59%)',
+  col4: "#718C00",
+  col5: "hsl(5, 74%, 59%)",
   // hue5: theme.color.color[6],
-  col6: 'hsl(35, 99%, 36%)',
+  col6: "hsl(35, 99%, 36%)",
   negative: theme.color.sem.negative[2],
   // positive: theme.color.sem.positive[1],
-  positive: '#718C00',
-  selection: 'hsl(230, 1%, 90%)',
+  positive: "#718C00",
+  selection: "hsl(230, 1%, 90%)",
 };
 
 const redSquiggly: CssLikeObject = {
-  marb: '-2px',
-  bdb: '2px dotted rgba(255,0,0,.6)',
-  d: 'inline-block',
-  pos: 'relative',
-  '&:after': {
-    d: 'block',
+  marb: "-2px",
+  bdb: "2px dotted rgba(255,0,0,.6)",
+  d: "inline-block",
+  pos: "relative",
+  "&:after": {
+    d: "block",
     content: '""',
-    w: '100%',
-    h: '4px',
-    bdb: '2px dotted rgba(255,0,0,.6)',
-    pos: 'absolute',
-    t: 'calc(1em - 1px)',
-    l: '-2px',
-  }
+    w: "100%",
+    h: "4px",
+    bdb: "2px dotted rgba(255,0,0,.6)",
+    pos: "absolute",
+    t: "calc(1em - 1px)",
+    l: "-2px",
+  },
 };
 
 const backgroundPadding: CssLikeObject = {
-  d: 'inline-block',
-  bdrad: '.4em',
-  mar: '-.1em',
-  pad: '.1em',
+  d: "inline-block",
+  bdrad: ".4em",
+  mar: "-.1em",
+  pad: ".1em",
 };
 
 const redBackground: CssLikeObject = {
   ...backgroundPadding,
-  bg: 'rgba(255,0,0,.08)',
+  bg: "rgba(255,0,0,.08)",
 };
 
 export const css = ({
@@ -127,7 +127,7 @@ export const css = ({
   string: str = col4,
   keyword = col3,
   builtin = col4,
-  'class-name': className = col5,
+  "class-name": className = col5,
   function: func = col2,
   boolean = col2,
   number = col6,
@@ -142,66 +142,66 @@ export const css = ({
   punctuation = mono1,
   important = col5,
   tag = col5,
-  'attr-name': attrName = mono3,
-  'attr-value': attrValue = col4,
+  "attr-name": attrName = mono3,
+  "attr-value": attrValue = col4,
   atrule = col3,
   selector = col1,
   nil = mono3,
   undef = mono3,
 }: ColorPalette = palette): CssLikeObject => {
-  const lightBg = 'rgba(127,127,127,.1)';
-  const lighterBg = 'rgba(127,127,127,.04)';
+  const lightBg = "rgba(127,127,127,.1)";
+  const lighterBg = "rgba(127,127,127,.04)";
 
   return {
     col: mono1,
-    '::selection': {
+    "::selection": {
       bg: selection,
-      col: 'inherit',
-      bdrad: '.2em',
+      col: "inherit",
+      bdrad: ".2em",
     },
-    '.token': {
-      '&.comment,&.prolog,&.cdata': {
+    ".token": {
+      "&.comment,&.prolog,&.cdata": {
         col: mono3,
       },
-      '&.doctype': {
+      "&.doctype": {
         col: mono1,
-        fw: 'bold',
+        fw: "bold",
       },
-      '&.entity': {
+      "&.entity": {
         col: mono1,
-        cur: 'help',
+        cur: "help",
       },
-      '&.keyword': {
+      "&.keyword": {
         col: keyword,
-        '&[text=null],&[text=nil]': {
+        "&[text=null],&[text=nil]": {
           col: nil,
         },
-        '&[text=undefined]': {
+        "&[text=undefined]": {
           col: undef,
         },
       },
-      '&.builtin': {
+      "&.builtin": {
         col: builtin,
       },
-      '&.class-name': {
+      "&.class-name": {
         col: className,
-        fw: 'bold',
+        fw: "bold",
       },
-      '&.important': {
+      "&.important": {
         col: important,
         ...redSquiggly,
       },
-      '&.function': {
+      "&.function": {
         col: func,
       },
-      '&.boolean': {
+      "&.boolean": {
         col: boolean,
-        '&[text=false]': redBackground,
+        "&[text=false]": redBackground,
       },
-      '&.number': {
+      "&.number": {
         ...backgroundPadding,
         col: number,
-        '&:hover': {
+        "&:hover": {
           bg: lightBg,
         },
         '&[text="0"],&[text="0.0"]': redBackground,
@@ -209,129 +209,129 @@ export const css = ({
           col: float,
         },
       },
-      '&.string': {
+      "&.string": {
         col: str,
-        '&[text="\'\'"],&[text=\'""\']': redBackground,
-        '&:hover': {
-          td: 'underline',
+        "&[text=\"''\"],&[text='\"\"']": redBackground,
+        "&:hover": {
+          td: "underline",
         },
-        '&.template-punctuation:hover': {
-          td: 'none',
+        "&.template-punctuation:hover": {
+          td: "none",
         },
       },
-      '&.char': {
+      "&.char": {
         col: char,
       },
-      '&.symbol': {
+      "&.symbol": {
         col: symbol,
       },
-      '&.regex': {
+      "&.regex": {
         col: regex,
-        '&:hover': {
-          td: 'underline',
+        "&:hover": {
+          td: "underline",
         },
       },
-      '&.url.string': {
-        td: 'underline',
+      "&.url.string": {
+        td: "underline",
       },
-      '&.operator': {
+      "&.operator": {
         col: operator,
       },
-      '&.variable': {
+      "&.variable": {
         col: variable,
       },
-      '&.constant': {
+      "&.constant": {
         col: constant,
       },
-      '&.property': {
+      "&.property": {
         col: property,
-        '&:hover': {
+        "&:hover": {
           // td: 'underline',
           ...backgroundPadding,
           bg: lightBg,
         },
       },
-      '&.punctuation': {
+      "&.punctuation": {
         col: punctuation,
         '&[text="."]': {
           col: mono3,
         },
       },
-      '&.tag': {
+      "&.tag": {
         col: tag,
       },
-      '&.attr-name': {
+      "&.attr-name": {
         col: attrName,
       },
-      '&.attr-value': {
+      "&.attr-value": {
         col: attrValue,
       },
-      '&.atrule,&.rule': {
+      "&.atrule,&.rule": {
         col: atrule,
       },
-      '&.atrule': {
+      "&.atrule": {
         ...backgroundPadding,
         bg: lighterBg,
       },
-      '&.selector': {
+      "&.selector": {
         col: selector,
       },
-      '&.coord': {
+      "&.coord": {
         col: mono3,
       },
-      '&.inserted': {
+      "&.inserted": {
         col: positive,
-        '&.prefix': {
+        "&.prefix": {
           ...backgroundPadding,
           bg: lighterBg,
-        }
+        },
       },
-      '&.deleted': {
+      "&.deleted": {
         col: negative,
-        '&.prefix': {
+        "&.prefix": {
           ...backgroundPadding,
           bg: lighterBg,
-        }
+        },
       },
-      '&.content': {
+      "&.content": {
         color: col2,
       },
-      '&.code-snippet': {
+      "&.code-snippet": {
         color: col4,
       },
-      '&.bold': {
-        fw: 'bold',
+      "&.bold": {
+        fw: "bold",
       },
-      '&.italic': {
-        fs: 'italic',
+      "&.italic": {
+        fs: "italic",
       },
-      '&.namespace': {
-        op: .8,
-      },
-    },
-  
-    '.language-js,.language-javascript': {
-      '.token': {
-        '&.keyword': {
-          '&[text=var],&[text=with]': redSquiggly,
-        },
-        '&.function': {
-          '&[text=eval],&[text=alert]': redSquiggly,
-        },
+      "&.namespace": {
+        op: 0.8,
       },
     },
-  
-    '.language-json': {
-      '.token': {
-        '&.property': {
-          fw: 'bold',
+
+    ".language-js,.language-javascript": {
+      ".token": {
+        "&.keyword": {
+          "&[text=var],&[text=with]": redSquiggly,
+        },
+        "&.function": {
+          "&[text=eval],&[text=alert]": redSquiggly,
         },
       },
     },
-  
-    '.language-css': {
-      '.token': {
-        '&.property': {
+
+    ".language-json": {
+      ".token": {
+        "&.property": {
+          fw: "bold",
+        },
+      },
+    },
+
+    ".language-css": {
+      ".token": {
+        "&.property": {
           col: mono3,
         },
       },

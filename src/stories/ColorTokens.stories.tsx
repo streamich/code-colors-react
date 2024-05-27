@@ -1,16 +1,10 @@
 import * as React from "react";
 import { ColorTokens } from "../ColorTokens";
-import {snippets} from './snippets';
+import { snippets } from "./snippets";
 
 export default {
   component: ColorTokens,
-  decorators: [
-    (Story) => (
-      <pre style={{fontSize: '13.6px'}}>
-        {Story()}
-      </pre>
-    ),
-  ]
+  decorators: [(Story) => <pre style={{ fontSize: "13.6px" }}>{Story()}</pre>],
 };
 
 export const HelloWorld = {

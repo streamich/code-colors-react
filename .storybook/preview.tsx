@@ -1,7 +1,7 @@
-import * as React from 'react';
-import type {Preview} from '@storybook/react';
-import {useStoryContext} from '@storybook/addons';
-import {Provider} from 'nano-theme';
+import * as React from "react";
+import type { Preview } from "@storybook/react";
+import { useStoryContext } from "@storybook/addons";
+import { Provider } from "nano-theme";
 
 const preview: Preview = {
   parameters: {
@@ -15,9 +15,9 @@ const preview: Preview = {
   decorators: [
     (Story) => {
       const color = useStoryContext()?.globals?.backgrounds?.value;
-      const isDark = color ? String(color)[1].toLowerCase() !== 'f' : false;
+      const isDark = color ? String(color)[1].toLowerCase() !== "f" : false;
       return (
-        <Provider theme={isDark ? 'dark' : 'light'}>
+        <Provider theme={isDark ? "dark" : "light"}>
           <Story />
         </Provider>
       );

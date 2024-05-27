@@ -1,8 +1,8 @@
 import * as React from "react";
-import {Markup} from "../Markup";
-import {rule} from 'nano-theme';
-import {css} from '../style';
-import {snippets} from './snippets';
+import { Markup } from "../Markup";
+import { rule } from "nano-theme";
+import { css } from "../style";
+import { snippets } from "./snippets";
 
 const className = rule(css());
 
@@ -10,7 +10,7 @@ export default {
   component: Markup,
   decorators: [
     (Story) => (
-      <pre style={{fontSize: '13.6px'}} className={className}>
+      <pre style={{ fontSize: "13.6px" }} className={className}>
         <Story />
       </pre>
     ),
@@ -99,25 +99,21 @@ const fn = () => 123;
     decorate: (token, children, lang, code, pos) => {
       if (Array.isArray(token)) {
         const [types] = token;
-        if (types[0] === 'number') {
-          return (
-            <span style={{border: '1px solid red'}}>
-              {children}
-            </span>
-          );
+        if (types[0] === "number") {
+          return <span style={{ border: "1px solid red" }}>{children}</span>;
         }
       }
     },
   },
 };
 
-const Str: React.FC<{str: string}> = ({str}) => {
+const Str: React.FC<{ str: string }> = ({ str }) => {
   if (str[0] === '"' && str[str.length - 1] === '"') {
     return (
       <>
-        <span style={{color: '#ccc'}}>"</span>
+        <span style={{ color: "#ccc" }}>"</span>
         <span className="token string">{str.slice(1, -1)}</span>
-        <span style={{color: '#ccc'}}>"</span>
+        <span style={{ color: "#ccc" }}>"</span>
       </>
     );
   }
@@ -125,9 +121,9 @@ const Str: React.FC<{str: string}> = ({str}) => {
   if (str[0] === "'" && str[str.length - 1] === "'") {
     return (
       <>
-        <span style={{color: '#ccc'}}>'</span>
+        <span style={{ color: "#ccc" }}>'</span>
         <span className="token string">{str.slice(1, -1)}</span>
-        <span style={{color: '#ccc'}}>'</span>
+        <span style={{ color: "#ccc" }}>'</span>
       </>
     );
   }
@@ -148,11 +144,13 @@ const fn = () => "hello world" + ' ' + \`!\`;
         console.log(2, token);
         const [types, stream] = token;
         // console.log(types, stream);
-        if (types[0] === 'string' && stream.length === 1 && typeof stream[0] === 'number') {
+        if (
+          types[0] === "string" &&
+          stream.length === 1 &&
+          typeof stream[0] === "number"
+        ) {
           console.log(3, token);
-          return (
-            <Str str={code.slice(pos, pos + stream[0])} />
-          );
+          return <Str str={code.slice(pos, pos + stream[0])} />;
         }
       }
     },

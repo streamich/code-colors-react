@@ -22,29 +22,36 @@ const astToReact = (
     const [node, len] = astToReact(token, code, offset, lang, decorate);
     nodeTextLength += len;
     let node2: React.ReactNode | undefined;
-    children.push(decorate
-      ? ((node2 = decorate(token, node, lang, code, offset)), node2 === undefined ? node : node2)
-      : node);
+    children.push(
+      decorate
+        ? ((node2 = decorate(token, node, lang, code, offset)),
+          node2 === undefined ? node : node2)
+        : node,
+    );
   }
   const props = {
     className: "token " + types.join(" "),
   };
   const firstChild = children[0];
-  if (children.length === 1 && typeof firstChild === 'string' && children.length <= 16) {
-    props['text'] = firstChild;
-    return [
-      h('span', props, firstChild),
-      nodeTextLength,
-    ];
+  if (
+    children.length === 1 &&
+    typeof firstChild === "string" &&
+    children.length <= 16
+  ) {
+    props["text"] = firstChild;
+    return [h("span", props, firstChild), nodeTextLength];
   } else {
-    return [
-      h('span', props, ...children),
-      nodeTextLength,
-    ];
+    return [h("span", props, ...children), nodeTextLength];
   }
 };
 
-export type DecorateToken = (token: Token, children: React.ReactNode, lang: string, code: string, pos: number) => React.ReactNode;
+export type DecorateToken = (
+  token: Token,
+  children: React.ReactNode,
+  lang: string,
+  code: string,
+  pos: number,
+) => React.ReactNode;
 
 export interface MarkupProps {
   code: string;
@@ -68,14 +75,7 @@ export interface MarkupProps {
 }
 
 export const Markup: React.FC<MarkupProps> = (props) => {
-  const {
-    code,
-    lang,
-    as = "code",
-    renderWaiting,
-    decorate,
-    ...rest
-  } = props;
+  const { code, lang, as = "code", renderWaiting, decorate, ...rest } = props;
   const [node, setNode] = React.useState<React.ReactNode | null>(null);
 
   const Tag = as as any;
@@ -86,9 +86,9 @@ export const Markup: React.FC<MarkupProps> = (props) => {
     tokens(code, lang)
       .then((ast) => {
         if (!cancelled) {
-          let realLang: string = lang || 'clike';
-          if (Array.isArray(ast[0]) && typeof ast[0][0] === 'string') {
-            if (ast[0][0].startsWith('language-')) {
+          let realLang: string = lang || "clike";
+          if (Array.isArray(ast[0]) && typeof ast[0][0] === "string") {
+            if (ast[0][0].startsWith("language-")) {
               realLang = ast[0][0].slice(9);
             }
           }
@@ -102,7 +102,11 @@ export const Markup: React.FC<MarkupProps> = (props) => {
     };
   }, [code, decorate]);
 
-  rest.children = node || (renderWaiting ? renderWaiting(props) : h('span', {style: {opacity: .5}}, code));
+  rest.children =
+    node ||
+    (renderWaiting
+      ? renderWaiting(props)
+      : h("span", { style: { opacity: 0.5 } }, code));
 
   return h(Tag, rest);
 };
