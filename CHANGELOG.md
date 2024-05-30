@@ -1,43 +1,39 @@
 # [3.1.0](https://github.com/streamich/code-colors-react/compare/v3.0.0...v3.1.0) (2024-05-27)
 
-
 ### Bug Fixes
 
-* 🐛 bump code-colors ([8b63ae4](https://github.com/streamich/code-colors-react/commit/8b63ae4ff862f5e4a2973584fe6ef2a7eafcb525))
-* 🐛 bump code-colors ([ae4d6fc](https://github.com/streamich/code-colors-react/commit/ae4d6fcdfd162392be66fdc36ffaeeb44bd146df))
-
+- 🐛 bump code-colors ([8b63ae4](https://github.com/streamich/code-colors-react/commit/8b63ae4ff862f5e4a2973584fe6ef2a7eafcb525))
+- 🐛 bump code-colors ([ae4d6fc](https://github.com/streamich/code-colors-react/commit/ae4d6fcdfd162392be66fdc36ffaeeb44bd146df))
 
 ### Features
 
-* 🎸 add a light-weight way to decorate tokens ([cc5d210](https://github.com/streamich/code-colors-react/commit/cc5d210925b4d75deca52a903579c16d5b9ccf5b))
-* 🎸 add default styling ([1a7d9fa](https://github.com/streamich/code-colors-react/commit/1a7d9fa0db1ed5725f9f90b7be034f9418f34f0e))
-* 🎸 add theming support to <ColorTokens> ([ad8ced4](https://github.com/streamich/code-colors-react/commit/ad8ced45fa2bfa323a8de981493547aa30895414))
-* 🎸 cleanup styling ([5add555](https://github.com/streamich/code-colors-react/commit/5add555c4318a4cbf72a4f7d2e1fb909d4aa6b67))
-* 🎸 cleanup theme ([3fc7fdb](https://github.com/streamich/code-colors-react/commit/3fc7fdb920757468e6c1cca46a1c687205f24b7c))
-* 🎸 create <Markup> component ([8289d50](https://github.com/streamich/code-colors-react/commit/8289d509497afe93fcd52c5144310673ac2d1279))
-* 🎸 do not underline template string punctuation ([d9dc595](https://github.com/streamich/code-colors-react/commit/d9dc595d54694af2836e8d23ad5b85adb0c24406))
-* 🎸 improve color palette ([a4af02f](https://github.com/streamich/code-colors-react/commit/a4af02fe16f2a93290c161f8ae81a1bc8128f2f1))
-* 🎸 improve generated markup ([0efc3a7](https://github.com/streamich/code-colors-react/commit/0efc3a7202218e89ab33d098accfc5ad2c322c05))
-* 🎸 improve highlighting colors ([ec0783f](https://github.com/streamich/code-colors-react/commit/ec0783fa803e2e79d50cb6c59734ac91177e5802))
-* 🎸 improve React component ([df4be2d](https://github.com/streamich/code-colors-react/commit/df4be2d68ff4b1e0158c16d786911f70d91dbee2))
-* 🎸 improve styling ([8675c64](https://github.com/streamich/code-colors-react/commit/8675c64f2bfc446be7f26fbef149ce995d742b3d))
-* 🎸 make red squiggly semi transparent ([9925544](https://github.com/streamich/code-colors-react/commit/99255446821c94a7f96af04e86f52fd8e7431852))
-* 🎸 progress on color theme ([1a0025d](https://github.com/streamich/code-colors-react/commit/1a0025d5421b431c92dd3861cd000c099ab7abeb))
-* 🎸 provide language to the decorator ([6ddd3ba](https://github.com/streamich/code-colors-react/commit/6ddd3ba1db9d581f1c76032d30671160da5a50a3))
-* 🎸 render red squigglies under banned keywords ([74e5567](https://github.com/streamich/code-colors-react/commit/74e5567b2609e0fa62f14408eedd2c9ab439b5c8))
-* 🎸 tweak colors ([cea75f9](https://github.com/streamich/code-colors-react/commit/cea75f967148560609e28c823d80faaf35423048))
+- 🎸 add a light-weight way to decorate tokens ([cc5d210](https://github.com/streamich/code-colors-react/commit/cc5d210925b4d75deca52a903579c16d5b9ccf5b))
+- 🎸 add default styling ([1a7d9fa](https://github.com/streamich/code-colors-react/commit/1a7d9fa0db1ed5725f9f90b7be034f9418f34f0e))
+- 🎸 add theming support to <ColorTokens> ([ad8ced4](https://github.com/streamich/code-colors-react/commit/ad8ced45fa2bfa323a8de981493547aa30895414))
+- 🎸 cleanup styling ([5add555](https://github.com/streamich/code-colors-react/commit/5add555c4318a4cbf72a4f7d2e1fb909d4aa6b67))
+- 🎸 cleanup theme ([3fc7fdb](https://github.com/streamich/code-colors-react/commit/3fc7fdb920757468e6c1cca46a1c687205f24b7c))
+- 🎸 create <Markup> component ([8289d50](https://github.com/streamich/code-colors-react/commit/8289d509497afe93fcd52c5144310673ac2d1279))
+- 🎸 do not underline template string punctuation ([d9dc595](https://github.com/streamich/code-colors-react/commit/d9dc595d54694af2836e8d23ad5b85adb0c24406))
+- 🎸 improve color palette ([a4af02f](https://github.com/streamich/code-colors-react/commit/a4af02fe16f2a93290c161f8ae81a1bc8128f2f1))
+- 🎸 improve generated markup ([0efc3a7](https://github.com/streamich/code-colors-react/commit/0efc3a7202218e89ab33d098accfc5ad2c322c05))
+- 🎸 improve highlighting colors ([ec0783f](https://github.com/streamich/code-colors-react/commit/ec0783fa803e2e79d50cb6c59734ac91177e5802))
+- 🎸 improve React component ([df4be2d](https://github.com/streamich/code-colors-react/commit/df4be2d68ff4b1e0158c16d786911f70d91dbee2))
+- 🎸 improve styling ([8675c64](https://github.com/streamich/code-colors-react/commit/8675c64f2bfc446be7f26fbef149ce995d742b3d))
+- 🎸 make red squiggly semi transparent ([9925544](https://github.com/streamich/code-colors-react/commit/99255446821c94a7f96af04e86f52fd8e7431852))
+- 🎸 progress on color theme ([1a0025d](https://github.com/streamich/code-colors-react/commit/1a0025d5421b431c92dd3861cd000c099ab7abeb))
+- 🎸 provide language to the decorator ([6ddd3ba](https://github.com/streamich/code-colors-react/commit/6ddd3ba1db9d581f1c76032d30671160da5a50a3))
+- 🎸 render red squigglies under banned keywords ([74e5567](https://github.com/streamich/code-colors-react/commit/74e5567b2609e0fa62f14408eedd2c9ab439b5c8))
+- 🎸 tweak colors ([cea75f9](https://github.com/streamich/code-colors-react/commit/cea75f967148560609e28c823d80faaf35423048))
 
 # [3.0.0](https://github.com/streamich/code-colors-react/compare/v2.0.0...v3.0.0) (2024-05-25)
 
-
 ### Features
 
-* 🎸 bump another major ([e3a6c62](https://github.com/streamich/code-colors-react/commit/e3a6c62622f0d5a7db4564cef816940892c576a3))
-
+- 🎸 bump another major ([e3a6c62](https://github.com/streamich/code-colors-react/commit/e3a6c62622f0d5a7db4564cef816940892c576a3))
 
 ### BREAKING CHANGES
 
-* 🧨 bump another major
+- 🧨 bump another major
 
 # [2.0.0](https://github.com/streamich/code-colors-react/compare/v1.0.0...v2.0.0) (2024-05-25)
 

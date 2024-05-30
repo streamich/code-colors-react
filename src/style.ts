@@ -313,7 +313,7 @@ export const css = ({
     ".language-js,.language-javascript": {
       ".token": {
         "&.keyword": {
-          "&[text=var],&[text=with]": redSquiggly,
+          "&[text=var],&[text=with],&[text=debugger]": redSquiggly,
         },
         "&.function": {
           "&[text=eval],&[text=alert]": redSquiggly,
