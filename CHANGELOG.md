@@ -1,10 +1,9 @@
 # [3.2.0](https://github.com/streamich/code-colors-react/compare/v3.1.0...v3.2.0) (2024-05-30)
 
-
 ### Features
 
-* 🎸 add squiggly underline to "debugger" ([b633dff](https://github.com/streamich/code-colors-react/commit/b633dffb1ac4b60a9a005c2c681bc5a57211a98d))
-* bump code-colors dependency ([c40348a](https://github.com/streamich/code-colors-react/commit/c40348ae475ebf0f69cbae0303576e672f3af970))
+- 🎸 add squiggly underline to "debugger" ([b633dff](https://github.com/streamich/code-colors-react/commit/b633dffb1ac4b60a9a005c2c681bc5a57211a98d))
+- bump code-colors dependency ([c40348a](https://github.com/streamich/code-colors-react/commit/c40348ae475ebf0f69cbae0303576e672f3af970))
 
 # [3.1.0](https://github.com/streamich/code-colors-react/compare/v3.0.0...v3.1.0) (2024-05-27)
 
