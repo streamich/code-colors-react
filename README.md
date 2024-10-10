@@ -1,6 +1,8 @@
 # code-colors-react
 
-React component for code syntax highlighting.
+React component for code syntax highlighting. [__Preview 📕__][storybook]
+
+[storybook]: https://streamich.github.io/code-colors-react/?path=/story/stories-colortokens--hello-world
 
 **Why another code syntax highlighting package?**
 
@@ -53,3 +55,20 @@ const url = `https://cdn.jsdelivr.net/npm/prism-themes@1.9.0/themes/${theme}.min
 
 loadCss(url);
 ```
+
+## Examples
+
+Basic JavaScript:
+
+![image](https://github.com/user-attachments/assets/ab0574ab-e99f-4a05-b187-c4a5d6d48850)
+
+Negative values with red background:
+
+![image](https://github.com/user-attachments/assets/eddeb75e-7e85-4c88-8a80-04fa70744bb6)
+
+Nested languages: JavaScript and CSS inside HTML:
+
+![image](https://github.com/user-attachments/assets/68f296f7-994b-4ddd-b7ce-401cb536a607)
+
+[See more examples][storybook].
+
