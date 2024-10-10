@@ -17,6 +17,7 @@ React component for code syntax highlighting. [__Preview 📕__][storybook]
   correct dimensions.
 - If code changes while it is being highlighted, the component will cancel the
   previous highlighting and start a new one.
+- Interactive CSS on mouse hover.
 
 ## Installation
 
