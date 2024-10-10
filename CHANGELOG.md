@@ -1,9 +1,8 @@
 ## [3.2.1](https://github.com/streamich/code-colors-react/compare/v3.2.0...v3.2.1) (2024-10-10)
 
-
 ### Bug Fixes
 
-* 🐛 bump dependencies ([ac869a3](https://github.com/streamich/code-colors-react/commit/ac869a35a7fd137fea960aacc9421e294f68d729))
+- 🐛 bump dependencies ([ac869a3](https://github.com/streamich/code-colors-react/commit/ac869a35a7fd137fea960aacc9421e294f68d729))
 
 # [3.2.0](https://github.com/streamich/code-colors-react/compare/v3.1.0...v3.2.0) (2024-05-30)
 
