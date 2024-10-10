@@ -1,6 +1,6 @@
 {
   "name": "code-colors-react",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "description": "Code syntax highlighting React component",
   "main": "lib/index.js",
   "scripts": {
