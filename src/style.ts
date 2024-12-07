@@ -107,7 +107,7 @@ const backgroundPadding: CssLikeObject = {
 
 const redBackground: CssLikeObject = {
   ...backgroundPadding,
-  bg: "rgba(255,0,0,.08)",
+  bg: "rgba(255,0,0,.05)",
 };
 
 export const css = ({
@@ -185,7 +185,6 @@ export const css = ({
       },
       "&.class-name": {
         col: className,
-        fw: "bold",
       },
       "&.important": {
         col: important,
