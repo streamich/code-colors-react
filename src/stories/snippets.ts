@@ -251,7 +251,7 @@ body {
     </style>
   </head>
   <body id="MyApp">
-    <h1 alt="Yup, header">This is a heading</h1>
+    <h1 alt="Yup, header" class="someClass">This is a heading</h1>
     <p bool num="123">This is a paragraph.</p>
     <a href="https://example.com"><b>This</b> is a link</a>
     <script>
