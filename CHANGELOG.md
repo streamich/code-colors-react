@@ -1,3 +1,10 @@
+# [3.4.0](https://github.com/streamich/code-colors-react/compare/v3.3.0...v3.4.0) (2025-08-30)
+
+
+### Features
+
+* update deps ([e1da41a](https://github.com/streamich/code-colors-react/commit/e1da41a4f86d5d52fbe01da6e74e1de400430c53))
+
 # [3.3.0](https://github.com/streamich/code-colors-react/compare/v3.2.1...v3.3.0) (2024-12-07)
 
 
