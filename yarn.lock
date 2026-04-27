@@ -2219,10 +2219,10 @@ clean-css@^5.2.2:
   dependencies:
     source-map "~0.6.0"
 
-code-colors@^2.4.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/code-colors/-/code-colors-2.4.0.tgz#993955bca93ce08bdfd2ecc20e17772a40eba5fb"
-  integrity sha512-6FhZx+bFu0iMwwwVsAfuY9SSmHhMze53Ybjd+sd20v2ocRZzRd2+Uo1dH2Rh9x86qc9wbLCOq6cPXYAi9KVMKw==
+code-colors@^2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/code-colors/-/code-colors-2.5.0.tgz#132b0380f43cadb3429b485b993767c89ca92147"
+  integrity sha512-61KEODKoBlS9yWvLTVQjnoFv4HjNSQ41qoJ44K+dz4P7fivwaYJ3GrNi50k6tygi2gVCPkda9CvCC7qVEyLOEw==
   dependencies:
     prismjs "^1.30.0"
     thingies "^2.5.0"
