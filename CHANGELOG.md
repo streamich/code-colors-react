@@ -1,3 +1,16 @@
+# [3.5.0](https://github.com/streamich/code-colors-react/compare/v3.4.0...v3.5.0) (2026-04-27)
+
+
+### Bug Fixes
+
+* 🐛  allow changing code block language ([f08a207](https://github.com/streamich/code-colors-react/commit/f08a207adc067a90fd91a1fae22a641015f8494a))
+
+
+### Features
+
+* 🎸 simplify and clean up theme styles ([029f093](https://github.com/streamich/code-colors-react/commit/029f093693cea651877dfed3306ed0836f5af612))
+* 🎸 update upstream dependency ([d2b85ef](https://github.com/streamich/code-colors-react/commit/d2b85ef9a8dabc0c2887c633a47b93a39ef568ef))
+
 # [3.4.0](https://github.com/streamich/code-colors-react/compare/v3.3.0...v3.4.0) (2025-08-30)
 
 ### Features
