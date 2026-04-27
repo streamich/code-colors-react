@@ -100,7 +100,7 @@ export const Markup: React.FC<MarkupProps> = (props) => {
     return () => {
       cancelled = true;
     };
-  }, [code, decorate]);
+  }, [code, decorate, lang]);
 
   rest.children =
     node ||

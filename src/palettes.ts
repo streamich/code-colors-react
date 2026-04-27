@@ -11,7 +11,6 @@ export const light: ColorPalette = {
   boolean: "#411888",
   nil: theme.g(0, 0.45),
   undef: theme.g(0, 0.25),
-  selection: theme.g(0, 0.08),
 };
 
 export const dark: ColorPalette = {
@@ -30,5 +29,4 @@ export const dark: ColorPalette = {
   boolean: "#9168c8",
   nil: darkTheme.g(0, 0.45),
   undef: darkTheme.g(0, 0.25),
-  selection: darkTheme.g(0, 0.1),
 };
