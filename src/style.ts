@@ -186,6 +186,7 @@ export const css = ({
       },
       "&.url.string": {
         td: "underline",
+        textUnderlineOffset: "3px",
       },
       "&.operator": {
         col: operator,

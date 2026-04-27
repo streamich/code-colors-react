@@ -1,6 +1,6 @@
 import { CodeColors } from "code-colors/lib/CodeColors";
 
-const bundle = "https://unpkg.com/code-colors@2.2.0/dist/bundle.js";
+const bundle = "https://cdn.jsdelivr.net/npm/code-colors@2.5.0/dist/bundle.js";
 
 let __colors: CodeColors | null = null;
 export const colors = (): CodeColors => {
