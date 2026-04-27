@@ -30,7 +30,6 @@ export interface ColorPalette {
   col6?: string;
   negative?: string;
   positive?: string;
-  selection: string;
   string?: string;
   keyword?: string;
   builtin?: string;
@@ -78,24 +77,6 @@ export const palette: ColorPalette = {
   negative: theme.color.sem.negative[2],
   // positive: theme.color.sem.positive[1],
   positive: "#718C00",
-  selection: "hsl(230, 1%, 90%)",
-};
-
-const redSquiggly: CssLikeObject = {
-  marb: "-2px",
-  bdb: "2px dotted rgba(255,0,0,.6)",
-  d: "inline-block",
-  pos: "relative",
-  "&:after": {
-    d: "block",
-    content: '""',
-    w: "100%",
-    h: "4px",
-    bdb: "2px dotted rgba(255,0,0,.6)",
-    pos: "absolute",
-    t: "calc(1em - 1px)",
-    l: "-2px",
-  },
 };
 
 const backgroundPadding: CssLikeObject = {
@@ -103,11 +84,6 @@ const backgroundPadding: CssLikeObject = {
   bdrad: ".4em",
   mar: "-.1em",
   pad: ".1em",
-};
-
-const redBackground: CssLikeObject = {
-  ...backgroundPadding,
-  bg: "rgba(255,0,0,.05)",
 };
 
 export const css = ({
@@ -122,7 +98,6 @@ export const css = ({
   col6 = mono3,
   negative = col5,
   positive = col4,
-  selection,
 
   string: str = col4,
   keyword = col3,
@@ -154,11 +129,6 @@ export const css = ({
 
   return {
     col: mono1,
-    "::selection": {
-      bg: selection,
-      col: "inherit",
-      bdrad: ".2em",
-    },
     ".token": {
       "&.comment,&.prolog,&.cdata": {
         col: mono3,
@@ -188,35 +158,22 @@ export const css = ({
       },
       "&.important": {
         col: important,
-        ...redSquiggly,
       },
       "&.function": {
         col: func,
       },
       "&.boolean": {
         col: boolean,
-        "&[text=false]": redBackground,
       },
       "&.number": {
         ...backgroundPadding,
         col: number,
-        "&:hover": {
-          bg: lightBg,
-        },
-        '&[text="0"],&[text="0.0"]': redBackground,
         '&[text*="."]': {
           col: float,
         },
       },
       "&.string": {
         col: str,
-        "&[text=\"''\"],&[text='\"\"']": redBackground,
-        "&:hover": {
-          td: "underline",
-        },
-        "&.template-punctuation:hover": {
-          td: "none",
-        },
       },
       "&.char": {
         col: char,
@@ -226,9 +183,6 @@ export const css = ({
       },
       "&.regex": {
         col: regex,
-        "&:hover": {
-          td: "underline",
-        },
       },
       "&.url.string": {
         td: "underline",
@@ -244,11 +198,6 @@ export const css = ({
       },
       "&.property": {
         col: property,
-        "&:hover": {
-          // td: 'underline',
-          ...backgroundPadding,
-          bg: lightBg,
-        },
       },
       "&.punctuation": {
         col: punctuation,
@@ -306,17 +255,6 @@ export const css = ({
       },
       "&.namespace": {
         op: 0.8,
-      },
-    },
-
-    ".language-js,.language-javascript": {
-      ".token": {
-        "&.keyword": {
-          "&[text=var],&[text=with],&[text=debugger]": redSquiggly,
-        },
-        "&.function": {
-          "&[text=eval],&[text=alert]": redSquiggly,
-        },
       },
     },
 
